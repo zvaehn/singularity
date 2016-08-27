@@ -1,6 +1,7 @@
 <?php snippet('header') ?>
 
-  <main class="main" role="main">
+<main class="main" role="main">
+  <section class="js-infinity-wall">
 
   <?php
     $walldata = $page->getCache();
@@ -120,16 +121,18 @@
         // flickr post
         case 'flickr':
           echo "<figure>";
-            //echo "<img src='".$post['data']['img_url'] ."'>";
-            echo "<caption>". $post['data']['title'] ."</caption>";
+            echo "<img class='js-lazyload' data-original='".$post['data']['img_url'] ."'>";
+            echo "<noscript><img src='".$post['data']['img_url']."'></noscript>";
+            echo "<figcaption>". $post['data']['title'] ."</figcaption>";
           echo "</figure>";
           break;
 
         // instagram post
         case 'instagram':
           echo "<figure>";
-            echo "<img src='".$post['data']['images']['thumbnail']['url']."'>";
-            echo "<caption>". $post['data']['caption']['text'] ."</caption>";
+            echo "<img class='js-lazyload' data-original='".$post['data']['images']['standard_resolution']['url']."'>";
+            echo "<noscript><img src='".$post['data']['images']['standard_resolution']['url']."'></noscript>";
+            echo "<figcaption>". $post['data']['caption']['text'] ."</figcaption>";
           echo "</figure>";
           break;
       }
@@ -137,7 +140,6 @@
       echo "<hr>";
     }
   ?>
-
-  </main>
-
+  </section>
+</main>
 <?php snippet('footer') ?>

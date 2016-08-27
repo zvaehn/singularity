@@ -1,0 +1,17 @@
+Title: Singularity
+
+----
+
+Author: Sven Schiffer
+
+----
+
+Description: 
+
+----
+
+Keywords:
+
+----
+
+Copyright: ©(date: Year) Singularity

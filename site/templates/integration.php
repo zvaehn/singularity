@@ -35,6 +35,8 @@ if($page->uid() == "flickr") {
   if ($frob) {
     $token = $flickr->auth_getToken($frob);
 
+    c::set('integrations')['flickr'] = $flickr;
+
     $page->update(array(
       'AccessToken' => $token['token']['_content']
     ));
@@ -42,6 +44,7 @@ if($page->uid() == "flickr") {
     go('integrations');
   }
   else {
+    echo $flickr->getErrorMsg();
     echo "An error occured";
   }
 }

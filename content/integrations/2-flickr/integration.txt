@@ -7,3 +7,7 @@ Accesstoken: 72157669868015404-a93cfbea260a05ef
 ----
 
 Isactive: true
+
+----
+
+Isvisibleonwall: true

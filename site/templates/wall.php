@@ -36,6 +36,10 @@
       $flickrdata = substr($flickrdata, 0, strlen($flickrdata) -1); //strip out last paren
       $flickr = json_decode($flickrdata, true); // stdClass object
 
+      echo "<pre>";
+      print_r($flickr);
+      echo "</pre>";
+
       foreach ($flickr['items'] as $key => $item) {
         array_push($walldata, array(
           'type' => 'flickr',
@@ -44,6 +48,42 @@
         ));
       }*/
 
+      // Flickr integration
+      $flickrPage = page('integrations/flickr');
+
+      if($flickrPage->isVisibleOnWall()->value()) {
+        $flickr = c::get('integrations')['flickr'];
+
+        // Check if flickr is enabled and valid
+        if($flickrPage->accessToken()) {
+          // var_dump($flickr->people_getInfo("96557486@N05"));
+          // https://www.flickr.com/services/api/flickr.photos.getSizes.html
+          // supported extras: https://www.flickr.com/services/api/flickr.photos.search.html
+          $photos = $flickr->people_getPhotos("me", array('extras' => 'date_upload'));
+
+          if(!$flickr->getErrorMsg()) {
+            if($photos['photos']['total'] > 0) {
+              foreach ($photos['photos']['photo'] as $key => $photo) {
+                if($photo['ispublic'] != "1") continue;
+
+                // create urls: https://www.flickr.com/services/api/misc.urls.html
+                $imgUrl = "https://farm".$photo['farm'].".staticflickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret']."_h.jpg";
+                $photo['img_url'] = $imgUrl;
+
+                /*echo "<pre>";
+                print_r($photo);
+                echo "</pre>";*/
+
+                array_push($walldata, array(
+                  'type' => 'flickr',
+                  'time' => $photo['dateupload'],
+                  'data' => $photo
+                ));
+              }
+            }
+          }
+        }
+      }
 
 
       // Instagram integration
@@ -97,7 +137,7 @@
         // flickr post
         case 'flickr':
           echo "<figure>";
-            echo "<img src='".$post['data']['media']['m'] ."'>";
+            echo "<img src='".$post['data']['img_url'] ."'>";
             echo "<caption>". $post['data']['title'] ."</caption>";
           echo "</figure>";
           break;
@@ -108,10 +148,6 @@
             echo "<img src='".$post['data']['images']['thumbnail']['url']."'>";
             echo "<caption>". $post['data']['caption']['text'] ."</caption>";
           echo "</figure>";
-          break;
-
-        default:
-          echo "type not found.";
           break;
       }
 

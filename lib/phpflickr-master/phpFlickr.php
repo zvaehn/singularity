@@ -276,6 +276,8 @@ if ( !class_exists('phpFlickr') ) {
 				$command = "flickr." . $command;
 			}
 
+			$this->token = "72157669868015404-a93cfbea260a05ef";
+
 			//Process arguments, including method and login data.
 			$args = array_merge(array("method" => $command, "format" => "json", "nojsoncallback" => "1", "api_key" => $this->api_key), $args);
 			if (!empty($this->token)) {
@@ -283,6 +285,7 @@ if ( !class_exists('phpFlickr') ) {
 			} elseif (!empty($_SESSION['phpFlickr_auth_token'])) {
 				$args = array_merge($args, array("auth_token" => $_SESSION['phpFlickr_auth_token']));
 			}
+
 			ksort($args);
 			$auth_sig = "";
 			$this->last_request = $args;

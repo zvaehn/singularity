@@ -1,9 +1,10 @@
 
-
-<figure>
-  <img class='js-lazyload' data-original="<?= $post['data']['img_url'] ?>">
+<figure class="img-wrapper">
+  <img class='js-lazyload' data-original="<?= $img['url_l'] ?>" height="<?= $img['height_l'] ?>" width="<?= $img['url_l'] ?>">
   <noscript>
-    <img src="<?= $post['data']['img_url'] ?>">
+    <img src="<?= $img['url_l'] ?>" height="<?= $img['height_l'] ?>" width="<?= $img['url_l'] ?>">
   </noscript>
-  <figcaption><?= $post['data']['title'] ?></figcaption>;
+  <figcaption>
+    <?= $img['title'] ?><br>
+  </figcaption>
 </figure>

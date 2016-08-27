@@ -23,7 +23,7 @@ class WallPage extends Page {
       echo "<br>";
     }
 
-    echo "<p>next cache refresh: ". gmdate("H:i:s", ($expireAt - $now))."</p>";
+    echo "<p style='position: fixed; top: 5px; left: 5px; font-size: 12px;'>next cache refresh: ". gmdate("H:i:s", ($expireAt - $now))."</p>";
 
     return $rebuildCache || !$this->cacheAvailable();
   }

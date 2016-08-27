@@ -13,7 +13,7 @@
 
       $page->update(array('touched' => time()));
 
-      echo "<p>rebuilding cache...</p>>";
+      echo "<p>rebuilding cache...</p>";
 
       // -----------------------------------------------------
       // Flickr integration
@@ -26,7 +26,7 @@
         if($flickrPage->accessToken()) {
           // https://www.flickr.com/services/api/flickr.photos.getSizes.html
           // supported extras: https://www.flickr.com/services/api/flickr.photos.search.html
-          $photos = $flickr->people_getPhotos("me", array('extras' => 'date_upload'));
+          $photos = $flickr->people_getPhotos("me", array('extras' => 'date_upload,url_sq,url_t,url_s,url_q,url_m,url_n,url_z,url_c,url_l,url_o'));
 
           if(!$flickr->getErrorMsg()) {
             if($photos['photos']['total'] > 0) {
@@ -34,12 +34,7 @@
                 if($photo['ispublic'] != "1") continue;
 
                 // create urls: https://www.flickr.com/services/api/misc.urls.html
-                $imgUrl = "https://farm".$photo['farm'].".staticflickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret']."_h.jpg";
-                $photo['img_url'] = $imgUrl;
-
-                /*echo "<pre>";
-                print_r($photo);
-                echo "</pre>";*/
+                // $imgUrl = "https://farm".$photo['farm'].".staticflickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'];
 
                 array_push($walldata, array(
                   'type' => 'flickr',
@@ -85,14 +80,16 @@
     }
 
     // Add non-cached blog Posts
-    $posts = page('posts')->children();
+    $posts = page('posts');
 
-    foreach ($posts as $key => $post) {
-      array_push($walldata, array(
-        'type' => 'post',
-        'time' => $post->date(),
-        'data' => $post
-      ));
+    if($posts->Arevisibleonwall()->bool()) {
+      foreach ($posts->children() as $key => $post) {
+        array_push($walldata, array(
+          'type' => 'post',
+          'time' => $post->date(),
+          'data' => $post
+        ));
+      }
     }
 
     // Sort by timestamp
@@ -114,7 +111,7 @@
 
         // flickr post
         case 'flickr':
-          snippet('integrations/flickr', array('post' => $post));
+          snippet('integrations/flickr', array('img' => $post['data']));
           break;
 
         // instagram post

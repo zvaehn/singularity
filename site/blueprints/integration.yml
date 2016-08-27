@@ -1,0 +1,11 @@
+title: Integration
+pages: false
+files: false
+fields:
+  title:
+    label: Title
+    type:  text
+  isVisibleOnWall:
+    label: Is this integration visisble on your wall?
+    type: toggle
+    text: yes/no

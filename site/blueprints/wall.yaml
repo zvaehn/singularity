@@ -1,0 +1,16 @@
+title: Wall
+pages: false
+files: false
+fields:
+  title:
+    label: Title
+    type:  text
+  cacheEnabled:
+    label: Enable the cache?
+    type: toggle
+    text: yes/no
+  cacheDuration:
+    label: Cache duration
+    type: text
+    default: 60
+    help: Time in minutes! e.g. "60" for one hour cache time

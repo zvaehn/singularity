@@ -9,15 +9,19 @@ class WallPage extends Page {
   function cacheNeedsRebuild() {
     // CACHE REBUILD
     $now = time();
-    $cacheDuration = $this->cacheDuration()->int() * 60;
+    $cacheDuration = $this->cacheDuration()->int();// * 60;
     $expireAt = $this->touched()->int() + $cacheDuration;
     $rebuildCache = ($now >= $expireAt) ? true : false;
 
-    /*echo "now: ". $now."<br>";
-    echo "cache duration: ".$cacheDuration."s<br>";
-    echo "expire at : ".$expireAt."<br>";
-    echo "touched at: ".$page->touched()->int()."<br>";
-    echo "rebuild: ".$rebuildCache;*/
+    if(false) {
+      echo "now: ". $now."<br>";
+      echo "cache duration: ".$cacheDuration."s<br>";
+      echo "expire at : ".$expireAt."<br>";
+      echo "touched at: ".$this->touched()->int()."<br>";
+      echo "rebuild: ".$rebuildCache."<br>";
+      echo "final return val: ".$rebuildCache . " " . !$this->cacheAvailable()."<br>";
+      echo "<br>";
+    }
 
     return $rebuildCache || !$this->cacheAvailable();
   }
@@ -42,6 +46,7 @@ class WallPage extends Page {
   }
 
   function setCache($data) {
-    return file_put_contents($this->cachefile, json_encode($data));
+    $json = json_encode($data);
+    return file_put_contents($this->cachefile, $json);
   }
 }

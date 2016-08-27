@@ -3,11 +3,6 @@
   <main class="main" role="main">
 
   <?php
-
-    // Flickering::handshake($apiKey, $apiSecret);
-    // Flickering::handshake();    //Using the config file
-
-
     $walldata = $page->getCache();
 
     // if cache is not available or outdated, rebuild it
@@ -19,35 +14,7 @@
 
       echo "rebuilding cache...<br>";
 
-      // Blog Posts
-      $posts = page('posts')->children();
-
-      foreach ($posts as $key => $post) {
-        array_push($walldata, array(
-          'type' => 'post',
-          'time' => $post->date(),
-          'data' => $post
-        ));
-      }
-
-      // Flickr integration
-      /*$flickrresponse = file_get_contents("https://api.flickr.com/services/feeds/photos_public.gne?id=96557486@N05&format=json");
-      $flickrdata = str_replace('jsonFlickrFeed(', '', $flickrresponse);
-      $flickrdata = substr($flickrdata, 0, strlen($flickrdata) -1); //strip out last paren
-      $flickr = json_decode($flickrdata, true); // stdClass object
-
-      echo "<pre>";
-      print_r($flickr);
-      echo "</pre>";
-
-      foreach ($flickr['items'] as $key => $item) {
-        array_push($walldata, array(
-          'type' => 'flickr',
-          'time' => strtotime($item['published']),
-          'data' => json_decode(json_encode($item), true)
-        ));
-      }*/
-
+      // -----------------------------------------------------
       // Flickr integration
       $flickrPage = page('integrations/flickr');
 
@@ -56,7 +23,6 @@
 
         // Check if flickr is enabled and valid
         if($flickrPage->accessToken()) {
-          // var_dump($flickr->people_getInfo("96557486@N05"));
           // https://www.flickr.com/services/api/flickr.photos.getSizes.html
           // supported extras: https://www.flickr.com/services/api/flickr.photos.search.html
           $photos = $flickr->people_getPhotos("me", array('extras' => 'date_upload'));
@@ -85,7 +51,7 @@
         }
       }
 
-
+      // ----------------------------------------------------
       // Instagram integration
       $instagramPage = page('integrations/instagram');
 
@@ -112,9 +78,23 @@
         }
       }
 
-      $page->setCache($walldata);
+      if(!$page->setCache($walldata)) {
+        echo "unable to write cache.<br>";
+      }
     }
 
+    // Add non-cached blog Posts
+    $posts = page('posts')->children();
+
+    foreach ($posts as $key => $post) {
+      array_push($walldata, array(
+        'type' => 'post',
+        'time' => $post->date(),
+        'data' => $post
+      ));
+    }
+
+    // Sort by timestamp
     usort($walldata, function($a, $b) {
       return $a['time'] < $b['time'];
     });
@@ -137,7 +117,7 @@
         // flickr post
         case 'flickr':
           echo "<figure>";
-            echo "<img src='".$post['data']['img_url'] ."'>";
+            //echo "<img src='".$post['data']['img_url'] ."'>";
             echo "<caption>". $post['data']['title'] ."</caption>";
           echo "</figure>";
           break;

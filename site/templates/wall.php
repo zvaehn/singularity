@@ -7,13 +7,13 @@
     $walldata = $page->getCache();
 
     // if cache is not available or outdated, rebuild it
-    if(!$walldata) {
+    if(!$walldata || $page->Cacheenabled()->value() != "true") {
       // unset($walldata);
       $walldata = array();
 
       $page->update(array('touched' => time()));
 
-      echo "rebuilding cache...<br>";
+      echo "<p>rebuilding cache...</p>>";
 
       // -----------------------------------------------------
       // Flickr integration
@@ -83,9 +83,6 @@
         echo "unable to write cache.<br>";
       }
     }
-    else {
-      echo "using cached data...";
-    }
 
     // Add non-cached blog Posts
     $posts = page('posts')->children();
@@ -112,28 +109,17 @@
       switch($post['type']) {
         // regular blogpost
         case 'post':
-          echo "<div>";
-          echo "<h2>".$post['data']->title()."</h2>";
-          echo substr($post['data']->text()->value(), 0, 200)."...";
-          echo "</div>";
+          snippet('integrations/post', array('post' => $post));
           break;
 
         // flickr post
         case 'flickr':
-          echo "<figure>";
-            echo "<img class='js-lazyload' data-original='".$post['data']['img_url'] ."'>";
-            echo "<noscript><img src='".$post['data']['img_url']."'></noscript>";
-            echo "<figcaption>". $post['data']['title'] ."</figcaption>";
-          echo "</figure>";
+          snippet('integrations/flickr', array('post' => $post));
           break;
 
         // instagram post
         case 'instagram':
-          echo "<figure>";
-            echo "<img class='js-lazyload' data-original='".$post['data']['images']['standard_resolution']['url']."'>";
-            echo "<noscript><img src='".$post['data']['images']['standard_resolution']['url']."'></noscript>";
-            echo "<figcaption>". $post['data']['caption']['text'] ."</figcaption>";
-          echo "</figure>";
+          snippet('integrations/instagram', array('post' => $post));
           break;
       }
 

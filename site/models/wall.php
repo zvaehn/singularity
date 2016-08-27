@@ -9,19 +9,21 @@ class WallPage extends Page {
   function cacheNeedsRebuild() {
     // CACHE REBUILD
     $now = time();
-    $cacheDuration = $this->cacheDuration()->int();// * 60;
+    $cacheDuration = $this->cacheDuration()->int() * 60;
     $expireAt = $this->touched()->int() + $cacheDuration;
     $rebuildCache = ($now >= $expireAt) ? true : false;
 
     if(false) {
       echo "now: ". $now."<br>";
       echo "cache duration: ".$cacheDuration."s<br>";
-      echo "expire at : ".$expireAt."<br>";
       echo "touched at: ".$this->touched()->int()."<br>";
+      echo "expire at : ".$expireAt."<br>";
       echo "rebuild: ".$rebuildCache."<br>";
       echo "final return val: ".$rebuildCache . " " . !$this->cacheAvailable()."<br>";
       echo "<br>";
     }
+
+    echo "<p>next cache refresh: ". gmdate("H:i:s", ($expireAt - $now))."</p>";
 
     return $rebuildCache || !$this->cacheAvailable();
   }

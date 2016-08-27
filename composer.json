@@ -1,5 +1,6 @@
 {
     "require": {
-        "cosenary/instagram": "^2.3"
+        "cosenary/instagram": "^2.3",
+        "anahkiasen/flickering": "^0.1.2"
     }
 }

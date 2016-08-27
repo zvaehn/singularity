@@ -1,5 +1,8 @@
-<?php
+<?php snippet('header') ?>
 
+  <main class="main" role="main">
+
+<?php
 // Code for instagram auth
 if($page->uid() == "instagram") {
   $instagram = c::get('integrations')['instagram'];
@@ -25,6 +28,25 @@ if($page->uid() == "instagram") {
 
 // Code for instagram auth
 if($page->uid() == "flickr") {
-  
+  $flickr = c::get('integrations')['flickr'];
+
+  $frob = isset($_GET['frob']) ? $_GET['frob'] : false;
+
+  if ($frob) {
+    $token = $flickr->auth_getToken($frob);
+
+    $page->update(array(
+      'AccessToken' => $token['token']['_content']
+    ));
+
+    go('integrations');
+  }
+  else {
+    echo "An error occured";
+  }
 }
 ?>
+
+</main>
+
+<?php snippet('footer') ?>

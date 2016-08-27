@@ -1,0 +1,26 @@
+title: Post
+pages: false
+files: true
+options:
+  preview: true
+  status: true
+  template: false
+  url: true
+  delete: true
+fields:
+  title:
+    label: Title
+    type:  text
+  text:
+    label: Text
+    type: textarea
+  date:
+    label: Date
+    type: date
+    format: DD.MM.YYYY
+    default: today
+    disabled: true
+  tags:
+    label: Tags
+    type: tags
+    lower: true

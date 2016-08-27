@@ -82,6 +82,9 @@
         echo "unable to write cache.<br>";
       }
     }
+    else {
+      echo "using cached data...";
+    }
 
     // Add non-cached blog Posts
     $posts = page('posts')->children();

@@ -116,9 +116,12 @@
             switch($post['type']) {
               // regular blogpost
               case 'post': ?>
-                <div class='grid-item col-xs-12'>
+                <div class='grid-item col-xs-12' id="grid-id-<?= $key ?>">
                   <div class="grid-item-content has-spacer blogpost">
-                    <?= snippet('integrations/post', array('post' => $post['data'])); ?>
+                    <?= snippet('integrations/post', array(
+                      'post' => $post['data'],
+                      'trim' => true
+                    )); ?>
                   </div>
                 </div>
                 <?php
@@ -126,7 +129,7 @@
 
               // flickr post
               case 'flickr': ?>
-                <div class='grid-item col-xs-6'>
+                <div class='grid-item col-xs-6' id="grid-id-<?= $key ?>">
                   <div class="grid-item-content">
                     <img class='unveil'
                       src="<?= $imgPlaceholder ?>"
@@ -143,7 +146,7 @@
               // instagram post
               case 'instagram':
                 ?>
-                <div class='grid-item col-xs-3'>
+                <div class='grid-item col-xs-3' id="grid-id-<?= $key ?>">
                   <div class="grid-item-content">
                     <img class="unveil"
                       src="<?= $imgPlaceholder ?>"

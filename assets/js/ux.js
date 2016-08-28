@@ -16,10 +16,13 @@ $(document).ready(function() {
   /*$(document).on('error', 'img', function (el) {
     console.log(el + " has an error");
   });*/
+  if(window.location.hash) {
+    
+  }
 
   $(window).on('resize', function(el) {
     $(window).trigger("lookup");
-    $grid.packery(); 
+    $grid.packery();
   });
 
   var $grid = $('.grid').packery({

@@ -11,7 +11,7 @@
         width="<?= $img['images']['standard_resolution']['width'] ?>">
     </noscript>
     <figcaption>
-      <h2><?= $img['caption']['text'] ?></h2>
+      <h3 class="js-fittext"><?= $img['caption']['text'] ?></h2>
       <?= $img['likes']['count'] ?> likes <br><?= strftime('%d.%m.%Y', $timestamp) ?>
     </figcaption>
   </figure>

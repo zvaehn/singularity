@@ -11,7 +11,7 @@
         width="<?= $img['width_m'] ?>">
     </noscript>
     <figcaption>
-      <h3><?= $img['title'] ?></h3>
+      <h3 class="js-fittext"><?= $img['title'] ?></h3>
       <?= $img['views'] ?> views <br>
       <?= strftime('%d.%m.%Y', $timestamp) ?>
     </figcaption>

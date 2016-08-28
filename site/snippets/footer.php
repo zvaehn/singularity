@@ -18,11 +18,12 @@
   <div class="breakpoint-debug device-lg visible-lg">lg</div>
 
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-  <script src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.min.js"></script>
   <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/js/unveil.js" ?>"></script>
-  <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/js/infinity.js" ?>"></script>
-  <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/js/lazyload.js" ?>"></script>
+  <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/lib/scrollTo.min.js" ?>"></script>
   <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/js/packery.js" ?>"></script>
+  <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/lib/fittext.js" ?>"></script>
   <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/js/ux.js" ?>"></script>
-</body>
+
+
+  </body>
 </html>

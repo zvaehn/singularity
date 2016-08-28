@@ -27,10 +27,16 @@ body {
 a {
   color: $text-color;
   transition: .3s color;
+  border-bottom: 1px solid $grey;
 
   &:hover, &:active, &:focus {
     color: $link-color-hover;
+    border-bottom-color: $link-color-hover;
     text-decoration: none;
+  }
+
+  &.-slight {
+    border: none;
   }
 }
 
@@ -80,6 +86,7 @@ p {
 
   a {
     display: block;
+    border: none;
   }
 
   li {
@@ -124,6 +131,7 @@ hr.spacer {
 }
 
 .blogpost {
+  text-align: left;
 
   h2 {
     margin-top: 0;
@@ -143,9 +151,14 @@ hr.spacer {
   }
 }
 
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+}
+
 figure.inline-content {
   display: table;
-  width: 100%;
+  position: relative;
 
   &:hover figcaption {
     opacity: 1.0;
@@ -197,6 +210,11 @@ figure.inline-content {
 
   &-item-content {
     overflow: hidden;
-    position: relative;
+    text-align: center;
+
+    > a {
+      display: inline-block;
+      border: none;
+    }
   }
 }

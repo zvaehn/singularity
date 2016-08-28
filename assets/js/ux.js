@@ -10,24 +10,35 @@ function lazyload() {
 
 
 $(document).ready(function() {
-  var $el = $('.js-infinity-wall');
-  var listView = new infinity.ListView($el);
+  /*var $el = $('.js-infinity-wall');
+  var listView = new infinity.ListView($el);*/
 
-  $(document).on('error', 'img', function (el) {
+  /*$(document).on('error', 'img', function (el) {
     console.log(el + " has an error");
+  });*/
+
+  $(window).on('resize', function(el) {
+    $(window).trigger("lookup");
+    $grid.packery(); 
   });
 
-
-  $(".unveil").unveil();
-
-  // lazyload();
-
-
-  /*var $grid = $('.grid').packery({
+  var $grid = $('.grid').packery({
     itemSelector: '.grid-item',
     columnWidth: '.grid-sizer',
-    percentPosition: true
-  });*/
+    // percentPosition: true
+  });
+
+  $(".unveil").unveil(200, function() {
+    // $(this).load(function() {
+    this.style.opacity = 1;
+    // });
+    // Update the layout
+
+    $(window).trigger("lookup");
+    $grid.packery();
+  });
+
+  // lazyload();
 
   // make all grid-items draggable
   /*$grid.find('.grid-item').each( function( i, gridItem ) {

@@ -13,7 +13,6 @@
       $page->update(array('touched' => time()));
 
       echo "<script type='text/javascript'>alert('rebuilding cache...')</script>";
-      echo "<p>rebuilding cache...</p>";
 
       // -----------------------------------------------------
       // Flickr integration
@@ -105,54 +104,62 @@
 
     ?>
     <div class="container">
-      <div class="js-infinity-wall grid">
-        <div class="grid-sizer col-xs-3"></div>
-        <?php
+      <div class="row">
+        <div class="col-xs-12">
+        <div class="js-infinity-wall grid">
+          <div class="grid-sizer col-xs-3"></div>
+          <?php
+          $imgPlaceholder = url('assets/images/placeholder.jpg');
 
-        // Blog Posts
-        foreach ($walldata as $key => $post) {
-          switch($post['type']) {
-            // regular blogpost
-            case 'post': ?>
-              <div class='grid-item col-xs-12'>
-                <div class="grid-item-content">
-                  <?= snippet('integrations/post', array('post' => $post)); ?>
+          // Blog Posts
+          foreach ($walldata as $key => $post) {
+            switch($post['type']) {
+              // regular blogpost
+              case 'post': ?>
+                <div class='grid-item col-xs-12'>
+                  <div class="grid-item-content has-spacer blogpost">
+                    <?= snippet('integrations/post', array('post' => $post['data'])); ?>
+                  </div>
                 </div>
-              </div>
-              <?php
-              break;
+                <?php
+                break;
 
-            // flickr post
-            case 'flickr': ?>
-              <div class='grid-item col-xs-6'>
-                <div class="grid-item-content">
-                  <img class='js-lazyload'
-                    src="<?= $post['data']['url_l'] ?>"
-                    height="<?= $post['data']['height_l'] ?>"
-                    width="<?= $post['data']['width_l'] ?>">
+              // flickr post
+              case 'flickr': ?>
+                <div class='grid-item col-xs-6'>
+                  <div class="grid-item-content">
+                    <img class='unveil'
+                      src="<?= $imgPlaceholder ?>"
+                      data-src="<?= $post['data']['url_l'] ?>"
+                      height="<?= $post['data']['height_l'] ?>"
+                      width="<?= $post['data']['width_l'] ?>">
 
-                <!-- <?= snippet('integrations/flickr', array('img' => $post['data'])); ?> -->
+                  <!-- <?= snippet('integrations/flickr', array('img' => $post['data'])); ?> -->
+                  </div>
                 </div>
-              </div>
-              <?php
-              break;
+                <?php
+                break;
 
-            // instagram post
-            case 'instagram':
-              /*?>
-              <div class='grid-item col-xs-3'>
-                <div class="grid-item-content">
-                  <img src="<?= $post['data']['images']['standard_resolution']['url'] ?>"
-                    height="<?= $post['data']['images']['standard_resolution']['height'] ?>"
-                    width="<?= $post['data']['images']['standard_resolution']['width'] ?>">
+              // instagram post
+              case 'instagram':
+                ?>
+                <div class='grid-item col-xs-3'>
+                  <div class="grid-item-content">
+                    <img class="unveil"
+                      src="<?= $imgPlaceholder ?>"
+                      data-src="<?= $post['data']['images']['standard_resolution']['url'] ?>"
+                      height="<?= $post['data']['images']['standard_resolution']['height'] ?>"
+                      width="<?= $post['data']['images']['standard_resolution']['width'] ?>">
+                  </div>
                 </div>
-              </div>
-              <?php */
-              // snippet('integrations/instagram', array('img' => $post['data']));
-              break;
+                <?php
+                // snippet('integrations/instagram', array('img' => $post['data']));
+                break;
+            }
           }
-        }
-      ?>
+        ?>
+        </div>
+        </div>
       </div>
     </div>
   </div>

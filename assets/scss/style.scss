@@ -4,6 +4,10 @@
 @import "_header.scss";
 @import "_footer.scss";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: $light-grey;
   font-family: "Source Sans Pro", sans-serif;
@@ -13,7 +17,7 @@ body {
     content: '';
     display: block;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background-color: $primary;
     position: fixed;
     z-index: 1000;
@@ -22,10 +26,17 @@ body {
 
 a {
   color: $text-color;
+  transition: .3s color;
 
-  &:hover {
+  &:hover, &:active, &:focus {
     color: $link-color-hover;
+    text-decoration: none;
   }
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 .breakpoint-debug {
@@ -36,10 +47,6 @@ a {
   color: white;
   background-color: rgba(0,0,0,0.3);
 }
-
-/*.js-lazyload {
-  display: none;
-}*/
 
 .img-rounded {
   border-radius: 50%;
@@ -89,27 +96,71 @@ a {
   }
 }
 
-/* clear fix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
+.unveil {
+  opacity: 0;
+  transition: opacity .3s ease-in;
 }
 
-/* ---- .grid-item ---- */
-.grid-item {
-  float: left;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.grid-item-content {
-  overflow: hidden;
-}
-
-.grid-item img {
-  display: block;
-  max-width: 100%;
+hr.spacer {
+  border-top: 1px solid $grey;
   width: 100%;
-  height: auto;
+  margin: 50px 0;
+}
+
+.has-spacer {
+  border-top: 1px solid $grey;
+  border-bottom: 1px solid $grey;
+  padding: 50px 0;
+  margin: 50px 0;
+}
+
+.blogpost {
+
+  h2 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .subheadline {
+    display: block;
+  }
+
+  .text {
+    margin-top: 20px;
+  }
+
+  .tags {
+
+  }
+}
+
+.grid {
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  &-item {
+    float: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    @media (max-width: $screen-xs-max) {
+      padding: 5px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &-item-content {
+    overflow: hidden;
+  }
 }

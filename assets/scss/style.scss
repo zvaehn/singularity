@@ -37,9 +37,9 @@ a {
   background-color: rgba(0,0,0,0.3);
 }
 
-.js-lazyload {
+/*.js-lazyload {
   display: none;
-}
+}*/
 
 .img-rounded {
   border-radius: 50%;
@@ -89,17 +89,6 @@ a {
   }
 }
 
-/*
-.img-wrapper img.portrait {
-  width: auto;
-  height: 100%;
-}
-
-.img-wrapper img.landscape {
-  width: 100%;
-  height: auto;
-}*/
-
 /* clear fix */
 .grid:after {
   content: '';
@@ -114,10 +103,13 @@ a {
   padding-bottom: 15px;
 }
 
+.grid-item-content {
+  overflow: hidden;
+}
+
 .grid-item img {
   display: block;
   max-width: 100%;
   width: 100%;
   height: auto;
-  overflow: hidden;
 }

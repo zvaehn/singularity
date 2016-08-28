@@ -123,27 +123,32 @@
               break;
 
             // flickr post
-            /*case 'flickr': ?>
-              <div class='grid-item col-xs-3'>
+            case 'flickr': ?>
+              <div class='grid-item col-xs-6'>
                 <div class="grid-item-content">
-                <?= snippet('integrations/flickr', array('img' => $post['data'])); ?>
+                  <img class='js-lazyload'
+                    src="<?= $post['data']['url_l'] ?>"
+                    height="<?= $post['data']['height_l'] ?>"
+                    width="<?= $post['data']['width_l'] ?>">
+
+                <!-- <?= snippet('integrations/flickr', array('img' => $post['data'])); ?> -->
+                </div>
               </div>
               <?php
-              break; */
+              break;
 
             // instagram post
             case 'instagram':
-              ?>
+              /*?>
               <div class='grid-item col-xs-3'>
                 <div class="grid-item-content">
-
-              <img src="<?= $post['data']['images']['standard_resolution']['url'] ?>"
-                height="<?= $post['data']['images']['standard_resolution']['height'] ?>"
-                width="<?= $post['data']['images']['standard_resolution']['width'] ?>">
+                  <img src="<?= $post['data']['images']['standard_resolution']['url'] ?>"
+                    height="<?= $post['data']['images']['standard_resolution']['height'] ?>"
+                    width="<?= $post['data']['images']['standard_resolution']['width'] ?>">
+                </div>
               </div>
-              <?php
+              <?php */
               // snippet('integrations/instagram', array('img' => $post['data']));
-              echo "</div>";
               break;
           }
         }

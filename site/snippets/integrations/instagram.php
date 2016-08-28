@@ -1,7 +1,14 @@
-<?php
-
-echo "<figure>";
-  echo "<img class='js-lazyload' data-original='".$post['data']['images']['standard_resolution']['url']."'>";
-  echo "<noscript><img src='".$post['data']['images']['standard_resolution']['url']."'></noscript>";
-  echo "<figcaption>". $post['data']['caption']['text'] ."</figcaption>";
-echo "</figure>";
+<figure class="img-wrapper">
+  <img class='js-lazyload'
+    data-original="<?= $img['images']['standard_resolution']['url'] ?>"
+    height="<?= $img['images']['standard_resolution']['height'] ?>"
+    width="<?= $img['images']['standard_resolution']['width'] ?>">
+  <noscript>
+    <img src="<?= $img['images']['standard_resolution']['url'] ?>"
+      height="<?= $img['images']['standard_resolution']['height'] ?>"
+      width="<?= $img['images']['standard_resolution']['width'] ?>">
+  </noscript>
+  <figcaption>
+    <?= $img['caption']['text'] ?>
+  </figcaption>
+</figure>

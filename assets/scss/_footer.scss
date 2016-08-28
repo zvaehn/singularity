@@ -1,0 +1,15 @@
+.footer {
+  padding: 20px 0;
+  margin-top: 50px;
+  border-top: 2px solid $primary;
+
+  .copyright {
+    @extend .col-sm-6;
+  }
+
+  .colophon {
+    @extend .col-sm-6;
+
+    text-align: right;
+  }
+}

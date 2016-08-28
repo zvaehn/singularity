@@ -1,7 +1,6 @@
 <?php snippet('header') ?>
 
 <main class="main" role="main">
-  <section class="js-infinity-wall">
 
   <?php
     $walldata = $page->getCache();
@@ -13,6 +12,7 @@
 
       $page->update(array('touched' => time()));
 
+      echo "<script type='text/javascript'>alert('rebuilding cache...')</script>";
       echo "<p>rebuilding cache...</p>";
 
       // -----------------------------------------------------
@@ -101,28 +101,55 @@
     print_r($walldata);
     echo "</pre>";*/
 
-    // Blog Posts
-    foreach ($walldata as $key => $post) {
-      switch($post['type']) {
-        // regular blogpost
-        case 'post':
-          snippet('integrations/post', array('post' => $post));
-          break;
+    $wallcount = count($walldata);
 
-        // flickr post
-        case 'flickr':
-          snippet('integrations/flickr', array('img' => $post['data']));
-          break;
+    ?>
+    <div class="container">
+      <div class="js-infinity-wall grid">
+        <div class="grid-sizer col-xs-3"></div>
+        <?php
 
-        // instagram post
-        case 'instagram':
-          snippet('integrations/instagram', array('post' => $post));
-          break;
-      }
+        // Blog Posts
+        foreach ($walldata as $key => $post) {
+          switch($post['type']) {
+            // regular blogpost
+            case 'post': ?>
+              <div class='grid-item col-xs-12'>
+                <div class="grid-item-content">
+                  <?= snippet('integrations/post', array('post' => $post)); ?>
+                </div>
+              </div>
+              <?php
+              break;
 
-      echo "<hr>";
-    }
-  ?>
-  </section>
+            // flickr post
+            /*case 'flickr': ?>
+              <div class='grid-item col-xs-3'>
+                <div class="grid-item-content">
+                <?= snippet('integrations/flickr', array('img' => $post['data'])); ?>
+              </div>
+              <?php
+              break; */
+
+            // instagram post
+            case 'instagram':
+              ?>
+              <div class='grid-item col-xs-3'>
+                <div class="grid-item-content">
+
+              <img src="<?= $post['data']['images']['standard_resolution']['url'] ?>"
+                height="<?= $post['data']['images']['standard_resolution']['height'] ?>"
+                width="<?= $post['data']['images']['standard_resolution']['width'] ?>">
+              </div>
+              <?php
+              // snippet('integrations/instagram', array('img' => $post['data']));
+              echo "</div>";
+              break;
+          }
+        }
+      ?>
+      </div>
+    </div>
+  </div>
 </main>
 <?php snippet('footer') ?>

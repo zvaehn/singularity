@@ -2,16 +2,20 @@ Title: Singularity
 
 ----
 
-Author: Sven Schiffer
+Author: hi im zvaehn
 
 ----
 
-Description: 
+Description: Student - Developer - Shutterbug
 
 ----
 
-Keywords:
+Keywords: 
 
 ----
 
 Copyright: ©(date: Year) Singularity
+
+----
+
+Avatar: bottom_up_squared_small.jpg

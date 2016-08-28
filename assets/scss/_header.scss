@@ -1,0 +1,38 @@
+
+.header {
+  padding: 50px 0;
+  text-align: left;
+
+  @media (max-width: $screen-xs-max) {
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 40px;
+  }
+
+  .avatar-col {
+    @extend .col-sm-4;
+
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 40px;;
+    }
+
+    text-align: center;
+  }
+
+  .avatar img {
+    border: 2px solid transparent;
+    transition: .3s border;
+
+    &:hover {
+      border: 2px solid $primary;
+    }
+  }
+
+  .meta-col {
+    @extend .col-sm-8;
+  }
+}

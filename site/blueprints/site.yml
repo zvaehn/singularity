@@ -1,5 +1,5 @@
 title: Site
-pages: default
+pages: false
 fields:
   title:
     label: Title
@@ -10,6 +10,9 @@ fields:
   description:
     label: Description
     type:  textarea
+  avatar:
+    label: Your avatar
+    type: image
   keywords:
     label: Keywords
     type:  tags

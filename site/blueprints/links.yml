@@ -1,0 +1,19 @@
+title: Links
+pages:
+  template: link
+  max: 10
+files: false
+options:
+  preview: false
+  status: true
+  template: false
+  url: false
+  delete: false
+fields:
+  title:
+    label: Title
+    type:  text
+  info:
+    type: info
+    label: Information
+    text: These are your external links.

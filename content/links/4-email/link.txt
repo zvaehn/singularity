@@ -1,0 +1,9 @@
+Title: Email
+
+----
+
+Link: mailto:svenschiffer92@gmail.com
+
+----
+
+Icon: 1472398989_mail.png

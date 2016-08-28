@@ -1,0 +1,25 @@
+title: Link
+pages: false
+files: true
+options:
+  preview: true
+  status: true
+  template: false
+  url: false
+  delete: true
+fields:
+  title:
+    label: Title
+    type:  text
+  link:
+    label: URL
+    type: text
+    icon: at
+    info: Please use "http://" or "mailto:"
+  isExternal:
+    label: Is this an external link?
+    type: toggle
+    text: yes/no
+  icon:
+    label: icon
+    type: image

@@ -1,0 +1,123 @@
+@import "../lib/bootstrap/assets/stylesheets/_bootstrap.scss";
+
+@import "_variables.scss";
+@import "_header.scss";
+@import "_footer.scss";
+
+body {
+  background-color: $light-grey;
+  font-family: "Source Sans Pro", sans-serif;
+  color: $text-color;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $primary;
+    position: fixed;
+    z-index: 1000;
+  }
+}
+
+a {
+  color: $text-color;
+
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
+.breakpoint-debug {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  color: white;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.js-lazyload {
+  display: none;
+}
+
+.img-rounded {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.vertical-list {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+
+  > li {
+    float: left;
+    list-style: none;
+  }
+
+  &:after, &:before {
+    clear: both;
+  }
+}
+
+.grid {
+  margin: 0 -15px;
+}
+
+.social-link-list {
+  @extend .vertical-list;
+
+  margin-top: 15px;
+
+  a {
+    display: block;
+  }
+
+  li {
+    margin-right: 10px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .link-icon {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+/*
+.img-wrapper img.portrait {
+  width: auto;
+  height: 100%;
+}
+
+.img-wrapper img.landscape {
+  width: 100%;
+  height: auto;
+}*/
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+.grid-item {
+  float: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}

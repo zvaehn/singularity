@@ -1,7 +1,7 @@
 
 function lazyload() {
   $(".js-lazyload").lazyload({
-    threshold : 300,
+    threshold : 3000,
     effect: "fadeIn"
   });
 
@@ -18,6 +18,19 @@ $(document).ready(function() {
   });
 
   lazyload();
+
+  var $grid = $('.grid').packery({
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    percentPosition: true
+  });
+
+  // make all grid-items draggable
+  /*$grid.find('.grid-item').each( function( i, gridItem ) {
+    var draggie = new Draggabilly( gridItem );
+    // bind drag events to Packery
+    $grid.packery( 'bindDraggabillyEvents', draggie );
+  });*/
 
 /*
   // define flickrs not found image

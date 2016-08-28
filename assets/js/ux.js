@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   if(window.location.hash) {
     $el = $(window.location.hash);
@@ -38,5 +37,4 @@ $(document).ready(function() {
 
     $(".js-fittext").fitText(1.2, { minFontSize: '12px', maxFontSize: '40px' });
   });
-
 });

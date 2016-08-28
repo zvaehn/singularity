@@ -8,6 +8,7 @@
   <meta name="description" content="<?= $site->description()->html() ?>">
   <meta name="keywords" content="<?= $site->keywords()->html() ?>">
 
+  <?= css('assets/lib/pace/themes/red/pace-theme-minimal.css') ?>
   <?= css('assets/css/style.css') ?>
 </head>
 <body>

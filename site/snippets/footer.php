@@ -21,9 +21,9 @@
   <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/js/unveil.js" ?>"></script>
   <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/lib/scrollTo.min.js" ?>"></script>
   <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/js/packery.js" ?>"></script>
+  <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/lib/pace/pace.min.js" ?>"></script>
   <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/lib/fittext.js" ?>"></script>
   <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/js/ux.js" ?>"></script>
-
 
   </body>
 </html>

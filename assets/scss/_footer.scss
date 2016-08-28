@@ -4,11 +4,11 @@
   border-top: 2px solid $primary;
 
   .copyright {
-    @extend .col-sm-6;
+    @extend .col-xs-6;
   }
 
   .colophon {
-    @extend .col-sm-6;
+    @extend .col-xs-6;
 
     text-align: right;
   }

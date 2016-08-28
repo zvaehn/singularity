@@ -110,6 +110,7 @@
           <div class="grid-sizer col-xs-3"></div>
           <?php
           $imgPlaceholder = url('assets/images/placeholder.jpg');
+          $lastType = "";
 
           // Blog Posts
           foreach ($walldata as $key => $post) {
@@ -117,7 +118,7 @@
               // regular blogpost
               case 'post': ?>
                 <div class='grid-item col-xs-12' id="grid-id-<?= $key ?>">
-                  <div class="grid-item-content has-spacer blogpost">
+                  <div class="grid-item-content has-spacer blogpost <?= ($lastType == 'post') ? 'is-proximate' : '' ?>">
                     <?= snippet('integrations/post', array(
                       'post' => $post['data'],
                       'trim' => true
@@ -125,11 +126,12 @@
                   </div>
                 </div>
                 <?php
+                $lastType = 'post';
                 break;
 
               // flickr post
               case 'flickr': ?>
-                <div class='grid-item col-xs-6' id="grid-id-<?= $key ?>">
+                <div class='grid-item col-xs-3' id="grid-id-<?= $key ?>">
                   <div class="grid-item-content">
                     <img class='unveil'
                       src="<?= $imgPlaceholder ?>"
@@ -141,6 +143,7 @@
                   </div>
                 </div>
                 <?php
+                $lastType = 'flickr';
                 break;
 
               // instagram post
@@ -156,6 +159,7 @@
                   </div>
                 </div>
                 <?php
+                $lastType = 'instagram';
                 // snippet('integrations/instagram', array('img' => $post['data']));
                 break;
             }

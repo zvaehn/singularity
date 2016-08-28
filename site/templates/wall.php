@@ -25,7 +25,7 @@
         if($flickrPage->accessToken()) {
           // https://www.flickr.com/services/api/flickr.photos.getSizes.html
           // supported extras: https://www.flickr.com/services/api/flickr.photos.search.html
-          $photos = $flickr->people_getPhotos("me", array('extras' => 'date_upload,url_sq,url_t,url_s,url_q,url_m,url_n,url_z,url_c,url_l,url_o'));
+          $photos = $flickr->people_getPhotos("me", array('extras' => 'date_upload,url_sq,url_t,url_s,url_q,url_m,url_n,url_z,url_c,url_l,url_o,geo,views'));
 
           if(!$flickr->getErrorMsg()) {
             if($photos['photos']['total'] > 0) {
@@ -82,7 +82,7 @@
     $posts = page('posts');
 
     if($posts->Arevisibleonwall()->bool()) {
-      foreach ($posts->children() as $key => $post) {
+      foreach ($posts->children()->visible() as $key => $post) {
         array_push($walldata, array(
           'type' => 'post',
           'time' => $post->date(),
@@ -110,9 +110,9 @@
           <div class="grid-sizer col-xs-3"></div>
           <?php
           $imgPlaceholder = url('assets/images/placeholder.jpg');
-          $lastType = "";
+          $lastType = ""; // stores the last item type. Needed for post spacer css class
 
-          // Blog Posts
+          // Loop all Wall Items
           foreach ($walldata as $key => $post) {
             switch($post['type']) {
               // regular blogpost
@@ -131,15 +131,13 @@
 
               // flickr post
               case 'flickr': ?>
-                <div class='grid-item col-xs-3' id="grid-id-<?= $key ?>">
+                <div class='grid-item col-xs-12 col-md-3' id="grid-id-<?= $key ?>">
                   <div class="grid-item-content">
-                    <img class='unveil'
-                      src="<?= $imgPlaceholder ?>"
-                      data-src="<?= $post['data']['url_l'] ?>"
-                      height="<?= $post['data']['height_l'] ?>"
-                      width="<?= $post['data']['width_l'] ?>">
-
-                  <!-- <?= snippet('integrations/flickr', array('img' => $post['data'])); ?> -->
+                    <?= snippet('integrations/flickr', array(
+                      'img' => $post['data'],
+                      'timestamp' => $post['time'],
+                      'placeholder' => $imgPlaceholder
+                    )); ?>
                   </div>
                 </div>
                 <?php
@@ -149,18 +147,17 @@
               // instagram post
               case 'instagram':
                 ?>
-                <div class='grid-item col-xs-3' id="grid-id-<?= $key ?>">
+                <div class='grid-item col-xs-12 col-md-3' id="grid-id-<?= $key ?>">
                   <div class="grid-item-content">
-                    <img class="unveil"
-                      src="<?= $imgPlaceholder ?>"
-                      data-src="<?= $post['data']['images']['standard_resolution']['url'] ?>"
-                      height="<?= $post['data']['images']['standard_resolution']['height'] ?>"
-                      width="<?= $post['data']['images']['standard_resolution']['width'] ?>">
+                    <?= snippet('integrations/instagram', array(
+                      'img' => $post['data'],
+                      'timestamp' => $post['time'],
+                      'placeholder' => $imgPlaceholder
+                    )); ?>
                   </div>
                 </div>
                 <?php
                 $lastType = 'instagram';
-                // snippet('integrations/instagram', array('img' => $post['data']));
                 break;
             }
           }

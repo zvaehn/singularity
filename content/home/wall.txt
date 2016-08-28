@@ -2,7 +2,7 @@ Title: Wall
 
 ----
 
-Touched: 1472391983
+Touched: 1472395416
 
 ----
 
@@ -14,4 +14,4 @@ Cachetime: 2
 
 ----
 
-Cacheduration: 60
+Cacheduration: 1440

@@ -14,7 +14,7 @@
   }
 
   .avatar-col {
-    @extend .col-sm-4;
+    @extend .col-sm-6;
 
     @media (max-width: $screen-xs-max) {
       margin-bottom: 40px;;
@@ -33,6 +33,6 @@
   }
 
   .meta-col {
-    @extend .col-sm-8;
+    @extend .col-sm-6;
   }
 }

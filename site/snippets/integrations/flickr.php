@@ -6,14 +6,20 @@
       height="<?= $img['height_m'] ?>"
       width="<?= $img['width_m'] ?>">
     <noscript>
-      <img src="<?= $img['urm_m'] ?>"
+      <img src="<?= $img['url_m'] ?>"
         height="<?= $img['height_m'] ?>"
         width="<?= $img['width_m'] ?>">
     </noscript>
     <figcaption>
-      <h3 class="js-fittext"><?= $img['title'] ?></h3>
-      <?= $img['views'] ?> views <br>
-      <?= strftime('%d.%m.%Y', $timestamp) ?>
+      <div class="alignment">
+        <?php if($img['title']): ?>
+          <h3 class="js-fittext"><?= $img['title'] ?></h3>
+        <?php endif; ?>
+        <p class="metadata">
+          <span><?= $img['views'] ?> views</span>
+          <span><?= strftime('%d.%m.%Y', $timestamp) ?></span>
+        </p>
+      </div>
     </figcaption>
   </figure>
 </a>

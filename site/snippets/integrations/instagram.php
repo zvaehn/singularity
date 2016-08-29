@@ -11,8 +11,15 @@
         width="<?= $img['images']['standard_resolution']['width'] ?>">
     </noscript>
     <figcaption>
-      <h3 class="js-fittext"><?= $img['caption']['text'] ?></h2>
-      <?= $img['likes']['count'] ?> likes <br><?= strftime('%d.%m.%Y', $timestamp) ?>
+      <div class="alignment">
+        <?php if($img['caption']['text']): ?>
+          <h3 class="js-fittext"><?= $img['caption']['text'] ?></h3>
+        <?php endif; ?>
+        <p class="metadata">
+          <span><?= $img['likes']['count'] ?> likes</span>
+          <span><?= strftime('%d.%m.%Y', $timestamp) ?></span>
+        </p>
+      </div>
     </figcaption>
   </figure>
 </a>

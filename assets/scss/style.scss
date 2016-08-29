@@ -159,27 +159,106 @@ hr.spacer {
 figure.inline-content {
   display: table;
   position: relative;
+  box-shadow: #e9ebec 0 2px 2px;
 
   &:hover figcaption {
     opacity: 1.0;
   }
 
   figcaption {
+    text-align: left;
+    padding: 10px;
+    width: 100%;
+    height: 40px;
+    font-weight: 300;
     display: table-cell;
     vertical-align: middle;
-    opacity: 0;
+    opacity: 1.0;
     position: absolute;
-    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
     color: white;
     background-color: rgba(0,0,0,0.5);
-    transition: opacity .3s;
-    text-align: center;
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 300;
+      float: left;
+      display: block;
+      text-overflow: ellipsis;
+      line-height: 20px;
+      height: 20px;
+      vertical-align: middle;
+    }
+
+    .metadata {
+      float: right;
+      font-size: 15px;
+      color: white;
+      text-overflow: ellipsis;
+      line-height: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin: 0;
+
+      span {
+        &:after {
+          content: ' - ';
+        }
+
+        &:last-of-type:after {
+          content: '';
+        }
+      }
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+
+    figcaption {
+      text-align: center;
+      opacity: 0;
+      transition: opacity .3s;
+      top: 0;
+      height: 100%;
+
+      .alignment {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        left: 0;
+        padding: 10px;
+      }
+
+      .metadata {
+        float: none;
+        height: auto;
+
+        span {
+          display: block;
+
+          &:after {
+            content: '';
+          }
+        }
+      }
+
+      h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        line-height: 25px;
+        height: auto;
+        float: none;
+        font-size: 20px;
+        max-height: 50px;
+        overflow: hidden;
+        white-space: pre-line;
+        text-overflow: ellipsis;
+      }
+    }
   }
 }
 

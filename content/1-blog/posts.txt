@@ -1,0 +1,5 @@
+Title: Blog
+
+----
+
+Arevisibleonwall: true

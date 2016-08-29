@@ -81,7 +81,7 @@
     // Add non-cached blog Posts
     $posts = page('posts');
 
-    if($posts->Arevisibleonwall()->bool()) {
+    /*if($posts->Arevisibleonwall()->bool()) {
       foreach ($posts->children()->visible() as $key => $post) {
         array_push($walldata, array(
           'type' => 'post',
@@ -89,7 +89,7 @@
           'data' => $post
         ));
       }
-    }
+    }*/
 
     // Sort by timestamp
     usort($walldata, function($a, $b) {

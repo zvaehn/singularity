@@ -1,5 +1,5 @@
-  <footer class="container" role="contentinfo">
-    <div class="footer">
+  <footer class="footer" role="contentinfo">
+    <div class="container">
       <div class="row">
         <div class="copyright">
           <?php echo $site->copyright() ?>

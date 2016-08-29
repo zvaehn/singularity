@@ -4,20 +4,22 @@
   text-align: left;
 
   @media (max-width: $screen-xs-max) {
-    padding: 40px 0;
+    padding-top: 60px;
+    padding-bottom: 40px;
     text-align: center;
   }
 
   h2 {
     margin-top: 0;
     font-size: 40px;
+    font-weight: 300;
   }
 
   .avatar-col {
     @extend .col-sm-6;
 
     @media (max-width: $screen-xs-max) {
-      margin-bottom: 40px;;
+      margin-bottom: 20px;
     }
 
     text-align: center;
@@ -34,5 +36,42 @@
 
   .meta-col {
     @extend .col-sm-6;
+
+    p {
+      font-weight: 300;
+      color: #888;
+    }
+  }
+
+  .nav-col {
+    @extend .col-xs-12;
+  }
+}
+
+/*nav*/.navigation {
+  position: absolute;
+  top: -40px;
+  right: 15px;
+  text-align: right;
+  width: 100%;
+
+  @media (max-width: $screen-xs-max) {
+    text-align: center;
+    left: 15px;
+    padding-right: 15px;
+  }
+
+  .menu-items {
+    @extend .vertical-list;
+
+    margin: 0 -10px;
+
+    li {
+      margin: 0 10px;
+
+      span.glyphicon {
+        font-size: 11px;
+      }
+    }
   }
 }

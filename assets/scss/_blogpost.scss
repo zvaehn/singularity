@@ -1,0 +1,37 @@
+
+.blogpost {
+  @extend .col-md-8;
+  @extend .col-xs-12;
+
+  text-align: left;
+
+  .glyphicon {
+    font-size: 12px;
+    margin-right: 3px;
+    color: $disabled;
+  }
+
+  .headline {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .time {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .text {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .time, .tags {
+    color: $disabled;
+  }
+
+  .read-more {
+    display: inline-block;
+  }
+}

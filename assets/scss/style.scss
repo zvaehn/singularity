@@ -3,6 +3,8 @@
 @import "_variables.scss";
 @import "_header.scss";
 @import "_footer.scss";
+@import "_figure.scss";
+@import "_blogpost.scss";
 
 * {
   box-sizing: border-box;
@@ -76,13 +78,14 @@ p {
 }
 
 .grid {
-  margin: 0 -15px;
+  // margin: 0 -15px;
 }
 
 .social-link-list {
   @extend .vertical-list;
 
   margin-top: 15px;
+  margin-bottom: -10px;
 
   a {
     display: block;
@@ -91,6 +94,7 @@ p {
 
   li {
     margin-right: 10px;
+    margin-bottom: 10px;
 
     &:last-of-type {
       margin-right: 0;
@@ -130,138 +134,6 @@ hr.spacer {
   }
 }
 
-.blogpost {
-  text-align: left;
-
-  h2 {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  .subheadline {
-    display: block;
-  }
-
-  .text {
-    margin-top: 20px;
-  }
-
-  .tags {
-
-  }
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 10px;
-}
-
-figure.inline-content {
-  display: table;
-  position: relative;
-  box-shadow: #e9ebec 0 2px 2px;
-
-  &:hover figcaption {
-    opacity: 1.0;
-  }
-
-  figcaption {
-    text-align: left;
-    padding: 10px;
-    width: 100%;
-    height: 40px;
-    font-weight: 300;
-    display: table-cell;
-    vertical-align: middle;
-    opacity: 1.0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: white;
-    background-color: rgba(0,0,0,0.5);
-
-    h3 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 300;
-      float: left;
-      display: block;
-      text-overflow: ellipsis;
-      line-height: 20px;
-      height: 20px;
-      vertical-align: middle;
-    }
-
-    .metadata {
-      float: right;
-      font-size: 15px;
-      color: white;
-      text-overflow: ellipsis;
-      line-height: 20px;
-      height: 20px;
-      vertical-align: middle;
-      margin: 0;
-
-      span {
-        &:after {
-          content: ' - ';
-        }
-
-        &:last-of-type:after {
-          content: '';
-        }
-      }
-    }
-  }
-
-  @media (min-width: $screen-md-min) {
-
-    figcaption {
-      text-align: center;
-      opacity: 0;
-      transition: opacity .3s;
-      top: 0;
-      height: 100%;
-
-      .alignment {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        left: 0;
-        padding: 10px;
-      }
-
-      .metadata {
-        float: none;
-        height: auto;
-
-        span {
-          display: block;
-
-          &:after {
-            content: '';
-          }
-        }
-      }
-
-      h3 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        line-height: 25px;
-        height: auto;
-        float: none;
-        font-size: 20px;
-        max-height: 50px;
-        overflow: hidden;
-        white-space: pre-line;
-        text-overflow: ellipsis;
-      }
-    }
-  }
-}
-
 .grid {
   overflow: hidden;
 
@@ -291,5 +163,38 @@ figure.inline-content {
       display: inline-block;
       border: none;
     }
+  }
+}
+
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace .pace-progress {
+  background: $primary;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+}
+
+.pagination {
+  padding-top: 20px;
+  display: block;
+
+  .prev-col {
+    @extend .col-xs-6;
+  }
+
+  .next-col {
+    @extend .col-xs-6;
+    text-align: right;
   }
 }

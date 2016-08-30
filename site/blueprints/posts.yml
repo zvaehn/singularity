@@ -1,4 +1,5 @@
 title: Posts
+icon: file-text-o
 pages:
   template: post
   num:

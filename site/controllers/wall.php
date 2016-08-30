@@ -73,13 +73,18 @@ return function($site, $pages, $page) {
         $instagram->setAccessToken($instagramPage->accessToken()->value());
         $media = $instagram->getUserMedia('self', 20);
 
-        // remember: get back to more then 20 posts...
-        foreach ($media->data as $key => $item) {
-          array_push($walldata, array(
-            'type' => 'instagram',
-            'time' => $item->created_time,
-            'data' => json_decode(json_encode($item), true)
-          ));
+        if(property_exists($media, "data")) {
+          // TodO: get back to more then 20 posts...
+          foreach ($media->data as $key => $item) {
+            array_push($walldata, array(
+              'type' => 'instagram',
+              'time' => $item->created_time,
+              'data' => json_decode(json_encode($item), true)
+            ));
+          }
+        }
+        else {
+          error_log("Instagram request error.");
         }
       }
     }
@@ -88,16 +93,6 @@ return function($site, $pages, $page) {
       error_log("unable to write cache.");
     }
   }
-
-  /*if($posts->Arevisibleonwall()->bool()) {
-    foreach ($posts->children()->visible() as $key => $post) {
-      array_push($walldata, array(
-        'type' => 'post',
-        'time' => $post->date(),
-        'data' => $post
-      ));
-    }
-  }*/
 
   // Sort by timestamp
   usort($walldata, function($a, $b) {
@@ -113,6 +108,5 @@ return function($site, $pages, $page) {
     'wallcount' => count($walldata)
   );
 };
-
 
 ?>

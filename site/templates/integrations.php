@@ -10,7 +10,7 @@
       <?php
       $available_integrations = $page->children()->visible();
 
-      if($available_integrations) {
+      if($available_integrations->count()) {
         echo "<ul>";
 
         foreach ($available_integrations as $key => $integration) {

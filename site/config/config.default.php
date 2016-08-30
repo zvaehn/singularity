@@ -16,7 +16,8 @@ for more information: http://getkirby.com/license
 */
 
 c::set('license', 'put your license key here');
-c::set('development', true);
+
+c::set('development', false);
 
 /*
 
@@ -36,11 +37,11 @@ Integration API Setup
 ---------------------------------------
 */
 c::set('flickr', array(
-  'key' => '4eadfb370eaa8d4ddf8891f9aa2a3d6d',
-  'secret' => '87bf81ff6d31cc61'
+  'key' => 'YOURAPIKEY',
+  'secret' => 'YOURAPISECRET'
 ));
 
 c::set('instagram', array(
-  'key' => '486c159f8f3e4061883bec6e24023465',
-  'secret' => 'beadfe2264e141ba8e27a2dd95c9af2e'
+  'key' => 'YOURAPIKEY',
+  'secret' => 'YOURAPISECRET'
 ));

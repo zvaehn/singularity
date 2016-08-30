@@ -3,12 +3,12 @@
     <img class='unveil'
       src="<?= $placeholder ?>"
       data-src="<?= $img['url_m'] ?>"
-      height="<?= $img['height_m'] ?>"
-      width="<?= $img['width_m'] ?>">
+      height="<?= $img['height_m'] ?>px"
+      width="<?= $img['width_m'] ?>px">
     <noscript>
       <img src="<?= $img['url_m'] ?>"
-        height="<?= $img['height_m'] ?>"
-        width="<?= $img['width_m'] ?>">
+        height="<?= $img['height_m'] ?>px"
+        width="<?= $img['width_m'] ?>px">
     </noscript>
     <figcaption>
       <div class="alignment">

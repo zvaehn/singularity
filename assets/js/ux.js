@@ -19,6 +19,8 @@ $(document).ready(function() {
     percentPosition: true
   });
 
+  $grid.packery();
+
   // improves layout in cost of performance
   var lastChecked = 0;
 
@@ -35,9 +37,8 @@ $(document).ready(function() {
     }
   });
 
-  $(".unveil").unveil(400, function() {
-    this.style.opacity = 1;
-
+  $(".unveil").unveil(200, function() {
+    $(this).addClass('-unveiled');
     $(window).trigger("lookup");
     $grid.packery();
   });
@@ -74,7 +75,6 @@ $(document).ready(function() {
         $img.replaceWith($svg);
 
     }, 'xml');
-
-});
+  });
 
 });

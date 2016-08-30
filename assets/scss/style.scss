@@ -109,7 +109,7 @@ p {
     &.replaced-svg {
       opacity: 1.0;
     }
-    
+
     path {
       fill: $disabled;
 
@@ -122,7 +122,11 @@ p {
 
 .unveil {
   opacity: 0;
-  transition: opacity .3s ease-in;
+  transition: opacity 0.7s ease-in;
+
+  &.-unveiled {
+    opacity: 1;
+  }
 }
 
 hr.spacer {
@@ -145,6 +149,16 @@ hr.spacer {
   @media (max-width: $screen-sm-max) {
     padding: 20px 0;
   }
+}
+
+
+.wallmeta {
+  @extend .col-xs-12;
+
+  margin-top: 50px;
+  text-align: center;
+  color: $disabled;
+  font-weight: 300;
 }
 
 .grid {

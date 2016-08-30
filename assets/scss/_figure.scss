@@ -47,7 +47,7 @@ figure.inline-content {
       vertical-align: middle;
       margin: 0;
 
-      span {
+      > span {
         &:after {
           content: ' - ';
         }
@@ -81,7 +81,7 @@ figure.inline-content {
         float: none;
         height: auto;
 
-        span {
+        > span {
           display: block;
 
           &:after {

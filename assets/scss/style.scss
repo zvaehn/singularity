@@ -81,45 +81,6 @@ p {
   // margin: 0 -15px;
 }
 
-.social-link-list {
-  @extend .vertical-list;
-
-  margin-top: 15px;
-  margin-bottom: -10px;
-
-  a {
-    display: block;
-    border: none;
-  }
-
-  li {
-    margin-right: 10px;
-    margin-bottom: 10px;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
-
-  .link-icon {
-    height: 30px;
-    width: 30px;
-    opacity: 0.3;
-
-    &.replaced-svg {
-      opacity: 1.0;
-    }
-
-    path {
-      fill: $disabled;
-
-      &:hover {
-        fill: $primary;
-      }
-    }
-  }
-}
-
 .unveil {
   opacity: 0;
   transition: opacity 0.7s ease-in;

@@ -3,6 +3,9 @@
 <main class="main" role="main">
 
     <div class="container">
+      <div class="spinner-container">
+        <div class="spinner"></div>
+      </div>
       <div class="row">
         <div class="js-infinity-wall grid">
           <div class="grid-sizer col-xs-3"></div>

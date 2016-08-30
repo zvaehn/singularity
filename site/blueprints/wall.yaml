@@ -1,6 +1,7 @@
 title: Wall
 pages: false
 files: false
+icon: cog
 fields:
   title:
     label: Title

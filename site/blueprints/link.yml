@@ -5,7 +5,7 @@ options:
   preview: true
   status: true
   template: false
-  url: false
+  url: true
   delete: true
 fields:
   title:
@@ -23,3 +23,4 @@ fields:
   icon:
     label: icon
     type: image
+    info: Please use svg graphics for better visualization

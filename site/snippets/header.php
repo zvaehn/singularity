@@ -58,7 +58,7 @@
                   <?php
                   $image = $link->image($link->icon());
                   ?>
-                  <img class="link-icon" src="<?= $image->url() ?>" alt="<?= $link->icon()->title() ?>">
+                  <img class="link-icon svg" src="<?= $image->url() ?>" alt="<?= $link->icon()->title() ?>">
                 </a>
               </li>
             <?php endforeach; ?>

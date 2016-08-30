@@ -1,0 +1,13 @@
+Title: Xing
+
+----
+
+Link: https://www.xing.com/profile/Sven_Schiffer4
+
+----
+
+Isexternal: true
+
+----
+
+Icon: xing-logo.svg

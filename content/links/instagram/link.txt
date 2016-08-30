@@ -6,7 +6,7 @@ Link: https://www.instagram.com/zvaehn/
 
 ----
 
-Icon: 1472398991_instagram.png
+Icon: instagram.svg
 
 ----
 

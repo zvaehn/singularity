@@ -1,0 +1,13 @@
+Title: Flickr
+
+----
+
+Link: https://flickr.com/photos/zvaehn
+
+----
+
+Isexternal: true
+
+----
+
+Icon: circle.svg

@@ -8,13 +8,6 @@ $(document).ready(function() {
     isMobileDevice = true;
   }
 
-  /*if(window.location.hash) {
-    $el = $(window.location.hash);
-    if($el) {
-      $.scrollTo($el, 300);
-    }
-  }*/
-
   $(window).on('resize', function(el) {
     $(window).trigger("lookup");
     $grid.packery();
@@ -29,34 +22,59 @@ $(document).ready(function() {
   // improves layout in cost of performance
   var lastChecked = 0;
 
-  $(document).on('scroll', function(e) {
+  $(window).on('scroll', function(e) {
     var now = Date.now();
 
     if(lastChecked + 1000 < now) {
       $grid.packery();
       lastChecked = now;
     }
+
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+      $grid.packery();
+    }
   });
 
-  $(".unveil").unveil(200, function() {
+  $(".unveil").unveil(400, function() {
     this.style.opacity = 1;
 
     $(window).trigger("lookup");
     $grid.packery();
-
-    // $(".js-fittext").fitText(1.2, { minFontSize: '12px', maxFontSize: '40px' });
   });
 
-  /*$('.grid-item-content > a')
-  .click(function(e) {
-    if(isMobileDevice) {
-      e.preventDefault();
-    }
-  })
-  .mousedown(function(e) {
-    $(this).find('figcaption').css('opacity', 1);
-  })
-  .mouseup(function(e) {
-    $(this).find('figcaption').css('opacity', 0);
-  });*/
+
+  $('img.svg').each(function(){
+    var $img = jQuery(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+
+    jQuery.get(imgURL, function(data) {
+        // Get the SVG tag, ignore the rest
+        var $svg = jQuery(data).find('svg');
+
+        // Add replaced image's ID to the new SVG
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        // Add replaced image's classes to the new SVG
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
+
+        // Remove any invalid XML tags as per http://validator.w3.org
+        $svg = $svg.removeAttr('xmlns:a');
+
+        // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+        if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+            $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+        }
+
+        // Replace image with new SVG
+        $img.replaceWith($svg);
+
+    }, 'xml');
+
+});
+
 });

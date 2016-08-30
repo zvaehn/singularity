@@ -12,6 +12,8 @@ site/accounts/*
 assets/avatars/*
 !assets/avatars/.gitkeep
 
+site/config/config.php
+
 # Exclude thumbnails
 thumbs/*
 !thumbs/index.html

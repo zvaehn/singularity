@@ -1,16 +1,12 @@
-# Kirby
+# Singularity
 
-Kirby is a file-based CMS.
+Singularity is based on Kirby, a file-based CMS.
 Easy to setup. Easy to use. Flexible as hell.
 
 ## Trial
 
-You can try Kirby on your local machine or on a test
-server as long as you need to make sure it is the right
-tool for your next project.
-
-## Buy a Kirby license
-
+You can try Singularity on your local machine or on a test
+server. If you want to use it on a live server, please buy a kirby license.
 You can purchase your Kirby license at
 <http://getkirby.com/buy>
 
@@ -25,7 +21,7 @@ Singularity runs on PHP 5.4+, Apache or Nginx.
 
 ### Download
 
-You can download the latest version of singularity at {{insertdownloadlink}}
+You can download the latest version of singularity at https://github.com/zvaehn/singularity/releases/
 
 ### With Git
 
@@ -35,3 +31,7 @@ Starterkit repository from Github.
     git clone https://github.com/zvaehn/singularity.git
 
 ###
+
+- rename site/config/config.default.php to config.php
+- npm install
+-

@@ -1,0 +1,13 @@
+title: Household
+pages: false
+icon: suitcase
+
+hide: true
+
+options:
+  preview: false
+  status: false
+  template: false
+  url: false
+  delete: false
+  hide: true

@@ -50,7 +50,6 @@
               echo "<span class='glyphicon glyphicon-remove'></span> ". $integration->title(). " <a href='". $loginUrl ."'>authorise</a>";
             }
 
-
             echo "</li>";
           }
         }
@@ -60,7 +59,6 @@
       else {
         echo "No integrations available.";
       }
-
       ?>
       </div>
     </div>

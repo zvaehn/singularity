@@ -8,7 +8,7 @@
   <meta name="description" content="<?= $site->description()->html() ?>">
   <meta name="keywords" content="<?= $site->keywords()->html() ?>">
 
-  <?= css('assets/css/style.css') ?>
+  <?=  c::get('development') ? css('assets/compiled/style.css') : css('assets/compiled/style.css') ?>
 </head>
 <body>
 

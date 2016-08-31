@@ -22,6 +22,9 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify": "0.0.14",
+    "gulp-sourcemaps": "^1.6.0",
     "jquery.scrollto": "^2.1.2"
   }
 }

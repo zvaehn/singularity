@@ -1,1 +1,4 @@
 Title: Manage your integrations
+----
+Text: Authorizing an application redirects you to the provider's page.
+You have to login with your credentials.

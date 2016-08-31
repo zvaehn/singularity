@@ -1,26 +1,11 @@
 <?php
-use Flickering\Flickering;
-use Flickering\FlickeringServiceProvider;
-use MetzWeb\Instagram\Instagram;
-
-DEFINE('ROOT', __DIR__ . '/../../');
-
-require ROOT . 'vendor/autoload.php';
-require ROOT . 'lib/phpflickr-master/phpFlickr.php';
 
 // Kirby return function
 return function($site, $pages, $page) {
 
-  $flickr = new phpFlickr(
-    c::get('flickr')['key'],
-    c::get('flickr')['secret']
-  );
-
-  $instagram = new Instagram(array(
-    'apiKey'      => c::get('instagram.key'),
-    'apiSecret'   => c::get('instagram.secret'),
-    'apiCallback' => url::scheme() . '://' . server::get('server_name') . '/integrations/instagram'
-  ));
+  // Get integrations
+  $flickr = get_flickr();
+  $instagram = get_instagram();
 
   $walldata = $page->getCache();
 
@@ -84,13 +69,13 @@ return function($site, $pages, $page) {
           }
         }
         else {
-          error_log("Instagram request error.");
+          if(c::get('development')) error_log("Instagram request error.");
         }
       }
     }
 
     if(!$page->setCache($walldata) && c::get('development')) {
-      error_log("unable to write cache.");
+      if(c::get('development')) error_log("unable to write cache.");
     }
   }
 

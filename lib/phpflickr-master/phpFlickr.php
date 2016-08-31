@@ -276,7 +276,7 @@ if ( !class_exists('phpFlickr') ) {
 				$command = "flickr." . $command;
 			}
 
-			$this->token = "72157669868015404-a93cfbea260a05ef";
+			// $this->token = "72157669868015404-a93cfbea260a05ef";
 
 			//Process arguments, including method and login data.
 			$args = array_merge(array("method" => $command, "format" => "json", "nojsoncallback" => "1", "api_key" => $this->api_key), $args);

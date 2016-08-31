@@ -32,6 +32,6 @@ Starterkit repository from Github.
 
 ###
 
-- rename site/config/config.default.php to config.php
-- npm install
--
+- rename `site/config/config.default.php` to `config.php`
+- run `npm install`
+- run `composer update`

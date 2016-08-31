@@ -1,1 +1,5 @@
 Title: Kontakt
+
+----
+
+Text: Get in touch with me via the social networks shown above.

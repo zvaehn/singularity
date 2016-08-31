@@ -3,6 +3,11 @@
   margin-top: 50px;
   border-top: 2px solid $primary;
 
+  p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
   .copyright {
     @extend .col-xs-6;
   }

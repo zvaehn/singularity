@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row">
         <div class="copyright">
-          <?php echo $site->copyright() ?>
+          <?= $site->copyright()->kirbytext() ?>
         </div>
 
         <div class="colophon">

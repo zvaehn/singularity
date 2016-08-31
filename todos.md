@@ -1,0 +1,6 @@
+- Integration Management
+- Integration Panel protection
+- Login
+- Footer Date Kirbytext
+- Social Link list padding (larger clickarea)
+- 

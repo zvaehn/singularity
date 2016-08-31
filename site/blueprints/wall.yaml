@@ -1,6 +1,12 @@
 title: Wall
 pages: false
 files: false
+options:
+  preview: true
+  status: false
+  template: false
+  url: false
+  delete: false
 icon: cog
 fields:
   title:

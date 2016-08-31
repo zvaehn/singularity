@@ -6,7 +6,7 @@ pages:
 files: false
 options:
   preview: false
-  status: true
+  status: false
   template: false
   url: false
   delete: false

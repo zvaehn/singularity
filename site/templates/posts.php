@@ -3,8 +3,13 @@
   <main class="main" role="main">
     <div class="container">
       <div class="row">
+
+        <div class="col-xs-12">
+          <h2 class="headline"><?= $page->title() ?></h2>
+        </div>
+
         <?php
-        $posts = $page->children()->visible()->sortBy('date')->flip()->paginate(1);
+        $posts = $page->children()->visible()->sortBy('date')->flip()->paginate(10);
         // $posts = $posts->sortBy('date', 'desc');
 
         if($posts->count()) {

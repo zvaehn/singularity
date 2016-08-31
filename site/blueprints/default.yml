@@ -1,6 +1,12 @@
 title: Page
-pages: true
+pages: false
 files: true
+options:
+  preview: true
+  status: true
+  template: false
+  url: true
+  delete: true
 fields:
   title:
     label: Title

@@ -1,6 +1,22 @@
 Title: Impressum
+
 ----
-Text:
+
+Text: 
+
+### 3rd Party Libraries
+- bootstrap
+- bootstrap-sass
+- jquery
+- masonry.js
+- packery.js
+- unveil.js
+- pace.js
+- phpflickr api-wrapper
+- cosenary/instagram api-wrapper
+- Made with Kirby
+
+### Author Credits
 <div>Icons made by <a href="http://www.flaticon.com/authors/minh-hoang" title="Minh Hoang">Minh Hoang</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 http://www.flaticon.com/packs/simpleicon-social-media/3

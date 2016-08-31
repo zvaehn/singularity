@@ -1,14 +1,14 @@
 title: Integrations
 icon: cog
-pages:
-  template: Integration
-files: false
 options:
-  preview: false
+  preview: true
   status: false
   template: false
   url: false
   delete: false
+pages:
+  template: Integration
+files: false
 fields:
   title:
     label: Title

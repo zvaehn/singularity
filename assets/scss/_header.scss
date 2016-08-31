@@ -85,6 +85,12 @@
   a {
     display: block;
     border: none;
+
+    &:hover {
+      .link-icon path {
+        fill: $primary;
+      }
+    }
   }
 
   li {
@@ -108,10 +114,6 @@
     path {
       fill: $disabled;
       transition: fill .3s;
-
-      &:hover {
-        fill: $primary;
-      }
     }
   }
 }

@@ -1,19 +1,18 @@
 <?php
 $root_dir     = realpath(dirname(__FILE__) . '/../../');
 $url          = (isset($_GET['url']) ? $_GET['url'] : false);
-$filename     = md5($url);
+$quality      = 50;
+$cacheoffset  = 48 * 60 * 60;
+$filename     = md5($url . $cacheoffset);
 $folder       = substr($filename, 0, 1);
 $cachedir     = $root_dir . '/cache/' . $folder . '/';
 $tmpdir       = $root_dir . '/tmp/' . $folder . '/';
 $errorfile    = $root_dir . '/assets/images/img_not_found_2.jpg';
-$quality      = 50;
-$cacheoffset  = 48 * 60 * 60;
-// $isvalidurl   = preg_match('/(http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png|JPG)/', $url);
 $isvalidurl   = true;
 
 // Create the cache dirs
-@mkdir($cachedir, "777");
-@mkdir($tmpdir, "777");
+mkdir($cachedir, 0777, true);
+mkdir($tmpdir, 0777, true);
 
 try {
   if($isvalidurl) {
@@ -31,6 +30,7 @@ try {
             $img = imageCreateFromJpeg($tmpfile);
 
             imagejpeg($img, $cachefile, $quality);
+            chmod($cachefile, 0777);
           }
           else {
             throw new Exception("Mimetype not supported yet.");

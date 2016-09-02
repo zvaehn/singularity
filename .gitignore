@@ -21,6 +21,7 @@ thumbs/*
 # Exclude cache
 site/cache/*
 !site/cache/index.html
+cache/
 
 tmp/
 node_modules

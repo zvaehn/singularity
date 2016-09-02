@@ -2,7 +2,7 @@
   <figure class="img-wrapper inline-content">
     <img class='unveil'
       src="<?= $placeholder ?>"
-      data-src="<?= $img['url_m'] ?>"
+      data-src="http://local.singularity.de/assets/php/img_compressor.php?url=<?= $img['url_m'] ?>"
       height="<?= $img['height_m'] ?>px"
       width="<?= $img['width_m'] ?>px">
     <noscript>

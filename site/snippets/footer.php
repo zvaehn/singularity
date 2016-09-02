@@ -20,11 +20,11 @@
     <div class="breakpoint-debug device-md visible-md">md</div>
     <div class="breakpoint-debug device-lg visible-lg">lg</div>
 
-    <script type="text/javascript" src="<?= kirby()->urls()->assets() . "/compiled/script.js" ?>"></script>
+    <script async type="text/javascript" src="<?= kirby()->urls()->assets() . "/compiled/script.js" ?>"></script>
     <?php
   }
   else {
-    ?><script type="text/javascript" src="<?= kirby()->urls()->assets() . "/compiled/script.min.js" ?>"></script><?php
+    ?><script async type="text/javascript" src="<?= kirby()->urls()->assets() . "/compiled/script.min.js" ?>"></script><?php
   }
   ?>
   </body>

@@ -51,14 +51,17 @@
 /*nav*/.navigation {
   position: absolute;
   top: -40px;
+  left: 15px;
   right: 15px;
   text-align: right;
   width: 100%;
 
   @media (max-width: $screen-xs-max) {
     text-align: center;
-    left: 15px;
+    left: 0;
+    right: 0;
     padding-right: 15px;
+    padding-left: 15px;
   }
 
   .menu-items {

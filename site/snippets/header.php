@@ -7,8 +7,29 @@
   <title><?= $site->title()->html() ?> | <?= $site->author()->html() ?></title>
   <meta name="description" content="<?= $site->description()->html() ?>">
   <meta name="keywords" content="<?= $site->keywords()->html() ?>">
+  <?php
+  if(!c::get('development')):
+  ?>
+  <meta name="robots" content="index,follow">
+  <meta http-equiv="cache-control" content="max-age=30">
+  <meta http-equiv="Expires" content="max-age=30">
+  <meta http-equiv="expires" content="Wed, 01 Jan 2020 11:11:11 GMT">
+  <?php
+  endif;
+  ?>
 
-  <?=  c::get('development') ? css('assets/compiled/style.css') : css('assets/compiled/style.css') ?>
+  <meta http-equiv="CONTENT-LANGUAGE" content="en-US,de">
+
+  <?php
+  if(c::get('development')) {
+    echo css('assets/compiled/style.css');
+  }
+  else {
+    echo "<style>";
+    echo file_get_contents('assets/compiled/style.min.css');
+    echo "</style>";
+  }
+  ?>
 </head>
 <body>
 

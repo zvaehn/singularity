@@ -12,8 +12,8 @@
     </noscript>
     <figcaption>
       <div class="alignment">
-        <?php if($img['title']): ?>
-          <h3 class="js-fittext"><?= $img['title'] ?></h3>
+        <?php if(strlen($img['title'])): ?>
+          <h3 class="img-title"><?= excerpt($img['title'], 100) ?></h3>
         <?php endif; ?>
         <p class="metadata">
           <span><?= $img['views'] ?> views</span>

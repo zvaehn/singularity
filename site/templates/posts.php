@@ -35,13 +35,13 @@
 
           <div class="prev-col">
             <?php if($posts->pagination()->hasPrevPage()): ?>
-            <a class="prev" href="<?= $posts->pagination()->prevPageURL() ?>">&lsaquo; zurück</a>
+            <a class="prev" href="<?= $posts->pagination()->prevPageURL() ?>">&lsaquo; previous page</a>
             <?php endif ?>
           </div>
 
           <div class="next-col">
             <?php if($posts->pagination()->hasNextPage()): ?>
-            <a class="next" href="<?= $posts->pagination()->nextPageURL() ?>">weiter &rsaquo;</a>
+            <a class="next" href="<?= $posts->pagination()->nextPageURL() ?>">next page &rsaquo;</a>
             <?php endif ?>
           </div>
 

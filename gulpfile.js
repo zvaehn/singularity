@@ -65,6 +65,7 @@ gulp.task('minifycss', function() {
   return gulp
     .src('assets/compiled/style.css')
     .pipe(sourcemaps.init())
+    .pipe(rename({suffix: '.min'}))
     .pipe(minify())
     .pipe(gulp.dest('assets/compiled'));
 });

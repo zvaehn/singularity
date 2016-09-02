@@ -22,6 +22,7 @@ thumbs/*
 site/cache/*
 !site/cache/index.html
 
+tmp/
 node_modules
 
 ### Less ###

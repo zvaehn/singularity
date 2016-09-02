@@ -12,8 +12,8 @@
     </noscript>
     <figcaption>
       <div class="alignment">
-        <?php if($img['caption']['text']): ?>
-          <h3 class="js-fittext"><?= $img['caption']['text'] ?></h3>
+        <?php if(strlen($img['caption']['text'])): ?>
+          <h3 class="img-title"><?= excerpt($img['caption']['text'], 100) ?></h3>
         <?php endif; ?>
         <p class="metadata">
           <span><?= $img['likes']['count'] ?> likes</span>

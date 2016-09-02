@@ -1,12 +1,12 @@
 <a href="<?= $img['link'] ?>" target="_blank">
   <figure class="img-wrapper inline-content">
     <img class="unveil"
-      src="<?= $placeholder ?>"
-      data-src="<?= $img['images']['standard_resolution']['url'] ?>"
+      src="<?= get_compressorUrl($placeholder) ?>"
+      data-src="<?= get_compressorUrl($img['images']['standard_resolution']['url']) ?>"
       height="<?= $img['images']['standard_resolution']['height'] ?>px"
       width="<?= $img['images']['standard_resolution']['width'] ?>px">
     <noscript>
-      <img src="<?= $img['images']['standard_resolution']['url'] ?>"
+      <img src="<?= get_compressorUrl($img['images']['standard_resolution']['url']) ?>"
         height="<?= $img['images']['standard_resolution']['height'] ?>px"
         width="<?= $img['images']['standard_resolution']['width'] ?>px">
     </noscript>

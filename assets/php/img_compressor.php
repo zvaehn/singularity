@@ -5,14 +5,15 @@ $filename     = md5($url);
 $folder       = substr($filename, 0, 1);
 $cachedir     = $root_dir . '/cache/' . $folder . '/';
 $tmpdir       = $root_dir . '/tmp/' . $folder . '/';
-$errorfile    = $root_dir . '/assets/images/img_not_found.jpg';
+$errorfile    = $root_dir . '/assets/images/img_not_found_2.jpg';
 $quality      = 50;
 $cacheoffset  = 48 * 60 * 60;
 // $isvalidurl   = preg_match('/(http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png|JPG)/', $url);
 $isvalidurl   = true;
 
-@mkdir($cachedir);
-@mkdir($tmpdir);
+// Create the cache dirs
+@mkdir($cachedir, "777");
+@mkdir($tmpdir, "777");
 
 try {
   if($isvalidurl) {
@@ -25,19 +26,26 @@ try {
 
       // Is the file alerady cached?
       if(!file_exists($cachefile)) {
-        @file_put_contents($tmpfile, @file_get_contents($url));
+        if(file_put_contents($tmpfile, file_get_contents($url))) {
+          if($type == "jpg") {
+            $img = imageCreateFromJpeg($tmpfile);
 
-        if($type == "jpg") {
-          $img = imageCreateFromJpeg($tmpfile);
-          imagejpeg($img, $cachefile, $quality);
+            imagejpeg($img, $cachefile, $quality);
+          }
+          else {
+            throw new Exception("Mimetype not supported yet.");
+          }
+          /*else if($type == "png") {
+            $img = imageCreateFromPng($tmpfile);
+            imagepng($img, $cachefile, 8);
+          }*/
         }
         else {
-          throw new Exception("Mimetype not supported yet.");
+          echo("Unable to create tmpfile: " . $tmpfile);
         }
-        /*else if($type == "png") {
-          $img = imageCreateFromPng($tmpfile);
-          imagepng($img, $cachefile, 8);
-        }*/
+
+        // Delete tempfile
+        unlink($tmpfile);
       }
 
       if(file_exists($cachefile) && is_readable($cachefile)) {
@@ -52,7 +60,7 @@ try {
   }
 }
 catch (Exception $e) {
-  // error_log($e);
+  error_log($e);
 }
 
 // Invalid Image ressource

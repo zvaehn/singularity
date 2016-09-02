@@ -59,7 +59,7 @@
             $avatar = $site->image($site->Avatar());
             $thumb = thumb($avatar , array('width' => 300, 'crop' => true));
             ?>
-            <img class="img-rounded" src="<?= $thumb->url() ?>" alt="<?= $avatar->title() ?>" />
+            <img class="img-rounded" src="<?= get_compressorUrl($thumb->url()) ?>" alt="<?= $avatar->title() ?>" />
           </a>
         </div>
         <div class="meta-col">

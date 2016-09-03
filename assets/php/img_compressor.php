@@ -1,7 +1,7 @@
 <?php
 $root_dir     = realpath(dirname(__FILE__) . '/../../');
 $url          = (isset($_GET['url']) ? $_GET['url'] : false);
-$quality      = 70;
+$quality      = 80;
 $cacheoffset  = 7 * 24 * 60 * 60;
 $filename     = md5($url . $quality);
 $folder       = substr($filename, 0, 2);
@@ -52,9 +52,12 @@ try {
       }
 
       if(file_exists($cachefile) && is_readable($cachefile)) {
+        $tstring = gmdate('D, d M Y H:i:s \G\M\T', time() + $cacheoffset);
         header('Pragma: public');
-        header('Cache-Control: max-age='.$cacheoffset);
-        header('Expires: '. gmdate('D, d M Y H:i:s \G\M\T', time() + $cacheoffset));
+        header('Cache-Control: public, max-age='.$cacheoffset);
+        header('Expires: '. $tstring);
+        header('Last-Modified: '.$tstring);
+        header('ETag: '.$filename);
         header('Content-Type: image/jpeg');
 
         echo file_get_contents($cachefile);

@@ -1,18 +1,17 @@
 <?php
 $root_dir     = realpath(dirname(__FILE__) . '/../../');
 $url          = (isset($_GET['url']) ? $_GET['url'] : false);
-$quality      = 50;
-$cacheoffset  = 48 * 60 * 60;
-$filename     = md5($url . $cacheoffset);
-$folder       = substr($filename, 0, 1);
+$quality      = 70;
+$cacheoffset  = 7 * 24 * 60 * 60;
+$filename     = md5($url . $quality);
+$folder       = substr($filename, 0, 2);
 $cachedir     = $root_dir . '/cache/' . $folder . '/';
-$tmpdir       = $root_dir . '/tmp/' . $folder . '/';
 $errorfile    = $root_dir . '/assets/images/img_not_found_2.jpg';
 $isvalidurl   = true;
 
 // Create the cache dirs
-mkdir($cachedir, 0777, true);
-mkdir($tmpdir, 0777, true);
+@mkdir($cachedir, 0777, true);
+@mkdir($tmpdir, 0777, true);
 
 try {
   if($isvalidurl) {
@@ -20,7 +19,7 @@ try {
 
     if(isset($type[0])) {
       $type      = strtolower(str_replace(".", "", $type[0]));
-      $tmpfile   = $tmpdir   . $filename . '.' . $type;
+      $tmpfile   = $cachedir   . 'tmp_' . $filename . '.' . $type;
       $cachefile = $cachedir . $filename . '.' . $type;
 
       // Is the file alerady cached?
@@ -29,7 +28,11 @@ try {
           if($type == "jpg") {
             $img = imageCreateFromJpeg($tmpfile);
 
+            /*$text_color = imagecolorallocate($img, 255, 0, 0);
+            imagestring($img, 6, 50, 50,  'THIS IS A CACHED FILE', $text_color);*/
+
             imagejpeg($img, $cachefile, $quality);
+
             chmod($cachefile, 0777);
           }
           else {
@@ -41,7 +44,7 @@ try {
           }*/
         }
         else {
-          echo("Unable to create tmpfile: " . $tmpfile);
+          error_log("Unable to create tmpfile: " . $tmpfile);
         }
 
         // Delete tempfile
@@ -55,7 +58,14 @@ try {
         header('Content-Type: image/jpeg');
 
         echo file_get_contents($cachefile);
+        exit();
       }
+      else {
+        error_log("file does not exist nor writeable");
+      }
+    }
+    else {
+      error_log("type not set");
     }
   }
 }

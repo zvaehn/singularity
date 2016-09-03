@@ -2,12 +2,12 @@ Title: Household (do not touch!)
 
 ----
 
-hide: true
+Hide: true
 
 ----
 
-Token: e9ea4243d73fe8af5e72d826af711106
+Token: 615504521728c3af7a45425b455fd93f
 
 ----
 
-tmp_integration_name:
+Tmp-integration-name: 

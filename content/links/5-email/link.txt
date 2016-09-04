@@ -6,4 +6,8 @@ Link: mailto:svenschiffer92@gmail.com
 
 ----
 
-Icon: 1472398989_mail.png
+Icon: email-filled-closed-envelope.svg
+
+----
+
+Isexternal: false

@@ -19,3 +19,7 @@ Copyright: ©(date: Year) Singularity
 ----
 
 Avatar: bottom_up_squared_small.jpg
+
+----
+
+Analytics: UA-64999156-1

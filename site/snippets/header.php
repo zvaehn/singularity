@@ -11,6 +11,7 @@
   <meta name="keywords" content="<?= $site->keywords()->html() ?>">
   <meta name="referrer" content="origin">
   <link rel="alternate" type="application/rss+xml" title="<? $site->author()->html() ?>" href="<?= $_SERVER['SERVER_NAME'] ?>/rss/">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
   <?php
   if(!c::get('development')):
@@ -33,6 +34,22 @@
     echo "<style>";
     echo file_get_contents('assets/compiled/style.min.css');
     echo "</style>";
+  }
+
+  if(c::get('development') && $site->analytics()->value()) {
+    ?>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '<?= $site->analytics()->value() ?>', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    <?php
   }
   ?>
 </head>

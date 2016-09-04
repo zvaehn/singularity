@@ -10,10 +10,13 @@ fields:
     type:  text
   description:
     label: Description
-    type:  textarea
+    type:  text
   avatar:
-    label: Your avatar
-    type: image
+    label: Avatar
+    type:  image
+  analytics:
+    label: Google-Analytics code
+    type:  text
   keywords:
     label: Keywords
     type:  tags

@@ -52,8 +52,6 @@ $(document).ready(function() {
     percentPosition: true
   });
 
-  $grid.packery();
-
   // improves layout in cost of performance
   var lastChecked = 0;
 
@@ -69,6 +67,10 @@ $(document).ready(function() {
       $grid.packery();
     }
   });
+
+  setTimeout(function(){
+    $grid.packery();
+  }, 1000);
 
   $(".unveil").unveil(200, function() {
     $(this).addClass('-unveiled');

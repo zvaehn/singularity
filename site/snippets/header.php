@@ -36,9 +36,8 @@
     echo "</style>";
   }
 
-  if(c::get('development') && $site->analytics()->value()) {
-    ?>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
+  if(!c::get('development') && $site->analytics()->value()) {
+    ?>    
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

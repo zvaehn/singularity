@@ -6,6 +6,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
+var cleanCSS = require('gulp-clean-css');
 
 var sassOptions = {
   errLogToConsole: true,
@@ -17,7 +18,18 @@ gulp.task('default', function() {
   gulp.start('js');
 });
 
-// Sass task for development
+gulp.task('watch', function() {
+  gulp.watch(['assets/scss/**/*scss'], ['minifycss'])
+    .on('change', function(event) {
+      console.log('\u27A1 File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+
+  gulp.watch(['assets/js/*.js'], ['minifyjs'])
+    .on('change', function(event) {
+      console.log('\u27A1 File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+});
+
 gulp.task('sass', function() {
   return gulp
     .src('assets/scss/**/*.scss')
@@ -26,10 +38,7 @@ gulp.task('sass', function() {
     .pipe(autoprefixer({
       browsers: ['> 1%', 'last 3 version', 'ie 8', 'ie 9', 'Firefox ESR', 'opera 12.1', 'Android 3', 'Android 4']
     }))
-    .pipe(minify({ ext: {
-      src: '.test.css',
-      min: '.min.css'
-    }}))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./assets/compiled'));
 });
 
@@ -39,45 +48,28 @@ gulp.task('js', function() {
     .src(['assets/js/*.js', '!assets/js/service-worker.js'])
     .pipe(sourcemaps.init())
     .pipe(concat('script.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./assets/compiled'));
+});
+
+gulp.task('minifyjs', ['js'], function() {
+  return gulp
+    .src('assets/compiled/script.js')
+    .pipe(sourcemaps.init())
     .pipe(minify({ ext: {
       src: '.js',
       min: '.min.js'
     }}))
-    .pipe(gulp.dest('./assets/compiled'));
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('assets/compiled'))
 });
 
-gulp.task('watch', function() {
-  return gulp
-    .watch([
-      'assets/js/*.js',
-      'assets/scss/**/*scss'
-    ],
-    [
-      'js',
-      'sass'
-    ])
-    .on('change', function(event) {
-      console.log('\u27A1 File ' + event.path + ' was ' + event.type + ', running tasks...');
-    });
-});
-
-gulp.task('minifycss', function() {
+gulp.task('minifycss', ['sass'], function() {
   return gulp
     .src('assets/compiled/style.css')
     .pipe(sourcemaps.init())
+    .pipe(cleanCSS())
     .pipe(rename({suffix: '.min'}))
-    .pipe(minify())
-    .pipe(gulp.dest('assets/compiled'));
-});
-
-gulp.task('production', function() {
-  return gulp
-    .src('assets/scss/**/*.scss')
-    .pipe(sass(sassOptions).on('error', sass.logError))
-    .pipe(autoprefixer({
-      browsers: ['> 1%', 'last 3 version', 'ie 8', 'ie 9', 'Firefox ESR', 'opera 12.1', 'Android 3', 'Android 4']
-    }))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
-    .pipe(gulp.dest('assets/compiled'));
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('assets/compiled'))
 });

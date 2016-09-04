@@ -49,7 +49,6 @@ $(document).ready(function() {
   var $grid = $('.grid').packery({
     itemSelector: '.grid-item',
     columnWidth: '.grid-sizer',
-    rowHeight: 160,
     percentPosition: true
   });
 

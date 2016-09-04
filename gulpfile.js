@@ -36,7 +36,7 @@ gulp.task('sass', function() {
 // JS Task
 gulp.task('js', function() {
   return gulp
-    .src('assets/js/*.js')
+    .src(['assets/js/*.js', '!assets/js/service-worker.js'])
     .pipe(sourcemaps.init())
     .pipe(concat('script.js'))
     .pipe(minify({ ext: {

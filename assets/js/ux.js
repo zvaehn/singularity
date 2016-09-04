@@ -49,6 +49,7 @@ $(document).ready(function() {
   var $grid = $('.grid').packery({
     itemSelector: '.grid-item',
     columnWidth: '.grid-sizer',
+    rowHeight: 160,
     percentPosition: true
   });
 
@@ -81,4 +82,12 @@ $(document).ready(function() {
     }
   });
 
+  // service_worker_init();
 });
+
+
+function service_worker_init() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('assets/js/service-worker.js');
+  }
+}

@@ -2,7 +2,7 @@ Title: Manage your wall
 
 ----
 
-Touched: 1473094553
+Touched: 1473098981
 
 ----
 
@@ -14,4 +14,4 @@ Cachetime: 2
 
 ----
 
-Cacheduration: 180
+Cacheduration: 720

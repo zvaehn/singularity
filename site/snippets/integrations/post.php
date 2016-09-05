@@ -22,7 +22,7 @@ $trim = isset($trim) ? $trim : false;
     <?php
       if($trim) {
         echo excerpt($post->text()->kirbytext(), 600);
-        echo " <a href='". $post->url() ."' class='read-more'>read more</a>";
+        echo " <a href='". $post->url() ."' class='read-more'>weiterlesen</a>";
       }
       else {
         echo $post->text()->kirbytext();

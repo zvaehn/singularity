@@ -27,7 +27,7 @@ return function($site, $pages, $page) {
       if($flickrPage->accessToken()) {
         // https://www.flickr.com/services/api/flickr.photos.getSizes.html
         // supported extras: https://www.flickr.com/services/api/flickr.photos.search.html
-        $photos = $flickr->people_getPhotos("me", array('extras' => 'date_upload,url_sq,url_t,url_s,url_q,url_m,url_n,url_z,url_c,url_l,url_o,geo,views'));
+        $photos = $flickr->people_getPhotos("me", array('per_page' => 500, 'extras' => 'date_upload,url_sq,url_t,url_s,url_q,url_m,url_n,url_z,url_c,url_l,url_o,geo,views'));
 
         if(!$flickr->getErrorMsg()) {
           if($photos['photos']['total'] > 0) {

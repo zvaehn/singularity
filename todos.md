@@ -1,2 +1,0 @@
-- Authorize Instagram Application to use more than 20 images
-- Flickr Paging

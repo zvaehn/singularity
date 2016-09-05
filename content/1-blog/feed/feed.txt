@@ -1,0 +1,4 @@
+Title: Blog Feed
+----
+Description: Neuste Updates aus meinem Blog
+----

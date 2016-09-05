@@ -10,7 +10,7 @@
   <meta name="description" content="<?= $site->description()->html() ?>">
   <meta name="keywords" content="<?= $site->keywords()->html() ?>">
   <meta name="referrer" content="origin">
-  <link rel="alternate" type="application/rss+xml" title="<? $site->author()->html() ?>" href="<?= $_SERVER['SERVER_NAME'] ?>/rss/">
+  <link rel="alternate" type="application/rss+xml" href="<?php echo url('blog/feed') ?>" title="<?= $site->author()->html() ?> - <?= html($pages->find('blog/feed')->title()) ?>" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
   <?php
@@ -37,7 +37,7 @@
   }
 
   if(!c::get('development') && $site->analytics()->value()) {
-    ?>    
+    ?>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

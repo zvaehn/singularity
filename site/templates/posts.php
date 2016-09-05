@@ -2,23 +2,14 @@
 
   <main class="main" role="main">
     <div class="container">
-      <div class="row">
-
-        <div class="col-xs-12">
-          <h2 class="headline"><?= $page->title() ?></h2>
-        </div>
+      <div class="blogposts">
 
         <?php
-        $posts = $page->children()->visible()->sortBy('date')->flip()->paginate(10);
-        // $posts = $posts->sortBy('date', 'desc');
+        $posts = $page->children()->visible()->sortBy('date')->flip()->paginate(5);
 
         if($posts->count()) {
           foreach ($posts as $key => $post) {
           ?>
-            <div class="col-xs-12">
-              <hr class="spacer">
-            </div>
-
             <?= snippet('integrations/post', array(
               'post' => $post,
               'trim' => true
@@ -30,24 +21,37 @@
       </div>
 
       <div class="row">
-        <?php if($posts->pagination()->hasPages()): ?>
         <nav class="pagination">
 
           <div class="prev-col">
-            <?php if($posts->pagination()->hasPrevPage()): ?>
-            <a class="prev" href="<?= $posts->pagination()->prevPageURL() ?>">&lsaquo; previous page</a>
-            <?php endif ?>
+            <?php
+            if($posts->pagination()->hasPrevPage()) {
+              ?><a class="prev" href="<?= $posts->pagination()->prevPageURL() ?>">&lsaquo; zurück</a><?php
+            }
+            else {
+              ?><span class="prev -disabled" href="<?= $posts->pagination()->prevPageURL() ?>">&lsaquo; zurück</span><?php
+            }
+            ?>
+          </div>
+
+          <div class="middle-col">
+            <?= $posts->pagination()->page() ?> von <?= $posts->pagination()->pages() ?>
           </div>
 
           <div class="next-col">
-            <?php if($posts->pagination()->hasNextPage()): ?>
-            <a class="next" href="<?= $posts->pagination()->nextPageURL() ?>">next page &rsaquo;</a>
-            <?php endif ?>
+            <?php
+            if($posts->pagination()->hasNextPage()) {
+              ?><a class="next" href="<?= $posts->pagination()->nextPageURL() ?>">weiter &rsaquo;</a><?php
+            }
+            else {
+              ?><span class="next -disabled" href="<?= $posts->pagination()->nextPageURL() ?>">weiter &rsaquo;</span><?php
+            }
+            ?>
           </div>
 
         </nav>
-        <?php endif ?>
       </div>
+
     </div>
   </main>
 

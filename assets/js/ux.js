@@ -68,9 +68,8 @@ $(document).ready(function() {
     }
   });
 
-  setTimeout(function(){
-    $grid.packery();
-  }, 1000);
+  setTimeout(function() { $grid.packery(); }, 1000);
+  setTimeout(function() { $grid.packery(); }, 2000);
 
   $(".unveil").unveil(200, function() {
     $(this).addClass('-unveiled');

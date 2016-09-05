@@ -3,13 +3,9 @@
   <main class="main" role="main">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12">
-          <hr class="spacer">
-        </div>
-    
-        <?= snippet('integrations/post', array('post' => $page)) ?>
 
-        </div>
+        <?= snippet('integrations/post', array('post' => $page)) ?>
+        
       </div>
     </div>
   </main>

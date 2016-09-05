@@ -1,9 +1,18 @@
 
-.blogpost {
-  @extend .col-md-8;
-  @extend .col-xs-12;
+.blogposts {
+  @extend .row;
 
+  margin-bottom: -20px;
+
+  > .blogpost .text {
+    margin-bottom: 20px;
+  }
+}
+
+.blogpost {
+  // @extend .col-xs-12;
   text-align: left;
+  margin-bottom: 50px;
 
   .glyphicon {
     font-size: 12px;
@@ -12,23 +21,36 @@
   }
 
   .headline {
-    margin-top: 0;
-    padding-top: 0;
+    @extend .col-xs-12;
+    /*> a {
+      color: $primary;
+    }*/
+  }
+
+  .meta {
+    @extend .col-xs-12;
   }
 
   .time {
     display: block;
     margin-bottom: 5px;
+    margin-right: 15px;
   }
 
   .text {
+    @extend .col-md-8;
+    @extend .col-xs-12;
+
     margin-top: 20px;
     font-size: 18px;
     line-height: 1.5;
+    font-weight: 300;
   }
 
   .time, .tags {
+    display: inline-block;
     color: $disabled;
+    font-weight: 300;
   }
 
   .read-more {

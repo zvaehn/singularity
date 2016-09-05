@@ -44,7 +44,12 @@ a {
 
 p {
   font-size: 18px;
+  font-weight: 300;
   line-height: 1.5;
+}
+
+strong {
+  font-weight: 500;
 }
 
 .breakpoint-debug {
@@ -178,14 +183,31 @@ hr.spacer {
   display: block;
 
   .prev-col {
-    @extend .col-xs-6;
+    @extend .col-xs-4;
+  }
+
+  .middle-col {
+    @extend .col-xs-4;
+    text-align: center;
   }
 
   .next-col {
-    @extend .col-xs-6;
+    @extend .col-xs-4;
     text-align: right;
   }
+
+  .prev, .next {
+    &.-disabled {
+      color: $disabled;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
 }
+
+
 
 .spinner {
   margin: 100px auto;

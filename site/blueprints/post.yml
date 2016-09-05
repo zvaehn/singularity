@@ -19,7 +19,6 @@ fields:
     type: date
     format: DD.MM.YYYY
     default: today
-    disabled: true
   tags:
     label: Tags
     type: tags

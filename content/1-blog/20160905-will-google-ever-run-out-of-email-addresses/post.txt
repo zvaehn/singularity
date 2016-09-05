@@ -1,0 +1,31 @@
+Title: Will Google ever run out of email addresses?
+
+----
+
+Text: 
+
+Natürlich nicht! 
+Google bietet kostenlose GMail Accounts bereits seit 2007 an. 
+Mittlerweile gibt es ~1 Milliarde Email Adressen (Stand Feb. 2016)
+
+Der Google Account dient nicht nur als Email Konto, sondern ermöglicht es dem Nutzer alle Google-Dienste zu nutzen.
+
+Ich habe mir die Frage gestellt, als ich mir selber ein neues Konto zulegen wollte, da meine aktuelle Email mein Geburtsjahr enthält. Das finde ich persönlich nicht so prickelnd, wenn ich jemandem schreibe der mein Alter jetzt nicht unbedingt wissen muss.
+
+Egal wie sehr ich versucht habe Teilstücke meines Namens unterzubringen, der Nutzername war bereits vergeben.
+
+(image: screen-shot-2016-04-22-at-15-55-28.png)
+
+Erschwerend kommt hinzu, dass Google nur `[a-z0-9.]` als gültige Zeichen erlaubt. Zwischen Groß- und Kleinschreibung wird nicht unterschieden.
+
+Wenn wir bereits nach 8 Jahren das Problem haben, dass eine Email durch Zahlen ergänzt werden muss, wenn sie den Namen enthalten soll, wird es für die nächsten Generationen eng.
+
+Klar, nicht jeder braucht einen Google Account und nicht jeder möchte seinen echten Namen benutzen, aber ich könnte mir vorstellen, dass "saubere" Adressen einmal viel Geld wert sein werden.
+
+----
+
+Date: 2016-04-22
+
+----
+
+Tags: 

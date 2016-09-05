@@ -1,0 +1,26 @@
+Title: Adblocker sind asozial!
+
+----
+
+Text: 
+
+Eigentlich ist mir diese Thematik erst so richtig mit den Contentblockern unter iOS9 klar geworden. 
+Adblocker sind auf den ersten Blick super cool, keine Frage, aber vielleicht sollten wir zwischen zwei Arten von Werbung unterscheiden. Es gibt einerseits die Produktwerbung von seriösen Anbietern und auf der anderen Seite nervige Popups, onclick-Ads und andere fancy javascript-alert welche die User-Experience auf ein Minimum reduzieren. Schade.
+
+Adblock User sollten sich zumindest im Klaren darüber sein, dass sie mehr oder weniger aktiv dazu beitragen eine wichtige Finanzierungsmöglichkeit aussterben zu lassen. 
+Wir hatten mir der Firma auch mal eine Idee für eine kleine App. 
+Ziemlich schnell sind wir zum Punkte Geld gekommen. Werbung zu schalten ist für den Anfang für Freemium-Nutzer eine auf jeden Fall zu erwägende Möglichkeit.
+
+Ich habe Adblocker installiert aber nur aus dem Grund den nervigen Content verschwinden zu lassen. Ich habe kein Problem damit auf einer Website Autowerbung angezeigt zu bekommen oder bei jedem 3. YouTube-Video kurz einen Spot anzuschauen.
+
+Die Browser Desktop Extension habe ich bereits deaktiviert. Auf dem iPhone und iPad werde ich sie vorerst noch aktiviert lassen, da teilweise bis zu 74% an Datenvolumen eingespart werden.
+
+Denk einfach mal drüber nach. Siehst du das vielleicht auch so?
+
+----
+
+Date: 2015-10-06
+
+----
+
+Tags: 

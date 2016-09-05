@@ -16,12 +16,7 @@ fields:
   title:
     label: Title
     type:  text
-  areVisibleOnWall:
-    label: Posts are visislbe on the wall.
-    type: toggle
-    default: yes
-    text: yes/no
   info:
     type: info
     label: Information
-    text: These are your blogposts.
+    text: These are your blogposts. Dont edit the "Blog Feed"

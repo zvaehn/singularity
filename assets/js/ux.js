@@ -82,4 +82,53 @@ $(document).ready(function() {
     }
   });
 
+  scrollTopButton(400);
+
 });
+
+
+function scrollTopButton(offset) {
+  offset = (offset) ? offset : 400;
+
+	var back_to_top_button = ['<a href="#top" class="back-to-top"><span class="glyphicons glyphicon glyphicon-chevron-up"></span></a>'].join("");
+	$("body").append(back_to_top_button);
+
+	// Hide the button
+	$(".back-to-top").hide();
+
+	// Scrollspy
+	$(function () {
+    var lastVal = 0;
+    var curVal = 0;
+    var direction = 'down';
+
+		$(window).scroll(function () {
+
+      curVal = $(this).scrollTop();
+      direction = (curVal > lastVal) ? 'down' : 'up';
+
+      if(direction == 'down') {
+        $('.back-to-top').fadeOut();
+      }
+      else {
+  			if($(this).scrollTop() > offset) { // reached scroll offset
+          if(direction == 'up') {
+            $('.back-to-top').fadeIn();
+          }
+  			}
+        else {
+  				$('.back-to-top').fadeOut();
+  			}
+      }
+
+      lastVal = curVal;
+		});
+
+		$('.back-to-top').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	});
+}

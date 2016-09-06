@@ -52,6 +52,18 @@ strong {
   font-weight: 500;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  font-size: 30px;
+  border: none;
+  padding: 3px 10px;
+  color: #ddd;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.6);
+}
+
 .breakpoint-debug {
   position: fixed;
   bottom: 0;

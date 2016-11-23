@@ -1,10 +1,10 @@
 <?php
-DEFINE('CACHEDIR', kirby()->roots()->cache(). DS . 'wall');
+DEFINE('CACHEDIR', kirby()->roots()->cache(). "/" . 'wall');
 DEFINE('CACHEFILE', 'wall.json');
 
 class WallPage extends Page {
 
-  private $cachefile = CACHEDIR . DS . CACHEFILE;
+  private $cachefile = CACHEDIR . "/" . CACHEFILE;
 
   function cacheNeedsRebuild() {
     // CACHE REBUILD

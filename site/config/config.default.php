@@ -19,6 +19,10 @@ c::set('license', 'put your license key here');
 
 c::set('development', false);
 
+if(c::get('development')) {
+  c::set('debug', true);
+}
+
 /*
 
 ---------------------------------------

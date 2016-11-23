@@ -17,7 +17,7 @@ Kirby's license agreement here: <http://getkirby.com/license>
 
 ### Requirements
 
-Singularity runs on PHP 5.4+, Apache or Nginx.
+Singularity runs on PHP 5.6+, Apache or Nginx.
 
 ### Download
 
@@ -30,8 +30,9 @@ Starterkit repository from Github.
 
     git clone https://github.com/zvaehn/singularity.git
 
-###
+### Setup
 
 - rename `site/config/config.default.php` to `config.php`
 - run `npm install`
 - run `composer update`
+- create the folder `site/cache/wall` and make sure its writeable

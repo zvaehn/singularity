@@ -84,8 +84,14 @@ $(document).ready(function() {
 
   scrollTopButton(400);
 
-});
+  $('.js-blog-affix').affix({
+    offset: {
+      // top: 235
+      top: 305
+    }
+  });
 
+});
 
 function scrollTopButton(offset) {
   offset = (offset) ? offset : 400;

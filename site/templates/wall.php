@@ -73,7 +73,7 @@
       </div>
 
       <div class="wallmeta">
-        You saw <?= $wallcount ?> items on <?= $site->author() ?>'s wall.
+        <?= $wallcount ?> items.
       </div>
     </div>
   </div>

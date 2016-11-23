@@ -1,0 +1,1 @@
+../lib/bootstrap/assets/javascripts/bootstrap/affix.js

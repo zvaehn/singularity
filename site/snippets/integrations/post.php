@@ -3,7 +3,7 @@ $trim = isset($trim) ? $trim : false;
 ?>
 
 <div class="blogpost">
-  <h2 class="headline"><a class="-slight" href="<?= $post->url() ?>"><?= $post->title()."</a></h2>" ?>
+  <h3 class="headline"><a class="-slight" href="<?= $post->url() ?>"><?= $post->title() ?></a></h3>
   <div class="meta">
     <div class="time">
       <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>

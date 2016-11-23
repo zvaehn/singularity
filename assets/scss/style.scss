@@ -52,6 +52,20 @@ strong {
   font-weight: 500;
 }
 
+h2.headline {
+  font-weight: 300;
+  font-size: 30px;
+
+  &:before {
+    content: '//';
+    margin-right: 10px;
+  }
+}
+
+.-relative {
+  position: relative
+}
+
 .back-to-top {
   position: fixed;
   bottom: 15px;
@@ -60,9 +74,7 @@ strong {
   border: none;
   height: 50px;
   width: 50px;
-  color: #ddd;
-  border-radius: 50%;
-  background-color: rgba(0,0,0,0.6);
+  color: $disabled;
 
   > span {
     height: 20px;

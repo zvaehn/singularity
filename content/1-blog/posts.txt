@@ -2,4 +2,24 @@ Title: Blog
 
 ----
 
+overview: Overview
+
+----
+
+recentPosts: Recent Posts
+
+----
+
+nav_prev: previous
+
+----
+
+nav_next: next
+
+----
+
+nav_of: of
+
+----
+
 Arevisibleonwall: true

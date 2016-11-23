@@ -72,6 +72,9 @@ return function($site, $pages, $page) {
           if(c::get('development')) error_log("Instagram request error.");
         }
       }
+      else {
+        if(c::get('development')) error_log("Instagram accessToken error.");
+      }
     }
 
     if(!$page->setCache($walldata) && c::get('development')) {

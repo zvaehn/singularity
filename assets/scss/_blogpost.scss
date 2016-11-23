@@ -1,17 +1,103 @@
 
 .blogposts {
-  @extend .row;
+  @extend .col-xs-12;
+  @extend .col-md-8;
 
   margin-bottom: -20px;
+
+  > .headline {
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
 
   > .blogpost .text {
     margin-bottom: 20px;
   }
 }
 
+.affix {
+  @extend .col-md-push-9;
+
+  width: 275px;
+  top: -50px;
+
+  @media (max-width: $screen-md-max) {
+    width: 250px;
+  }
+}
+
+.affix-top {
+  @extend .col-md-push-9;
+
+  width: 275px;
+  position: absolute;
+
+  @media (max-width: $screen-md-max) {
+    width: 250px;
+  }
+}
+
+.js-blog-affix {
+  @extend .hidden-xs;
+  @extend .hidden-sm;
+}
+
+.blognavigation {
+  .headline {
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 300;
+
+    > li {
+      margin-bottom: 15px;
+      position: relative;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #CCC;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+      > .list-style-item {
+        position: absolute;
+        top: 3px;
+      }
+
+      .item {
+        margin-left: 25px;
+      }
+    }
+
+    .link {
+      display: block;
+      margin-bottom: 4px;
+      border-bottom: none;
+    }
+
+    .meta {
+      color: $disabled;
+      display: block;
+      font-size: 12px;
+      font-style: italic;
+    }
+  }
+}
+
 .blogpost {
   text-align: left;
   margin-bottom: 50px;
+
+  &-single {
+
+  }
 
   .glyphicon {
     font-size: 12px;
@@ -20,26 +106,23 @@
   }
 
   .headline {
-    @extend .col-xs-12;
-    /*> a {
-      color: $primary;
-    }*/
+    width: 100%;
   }
 
   .meta {
-    @extend .col-xs-12;
+    width: 100%;
+    color: $disabled;
   }
 
   .time {
     display: block;
     margin-bottom: 5px;
     margin-right: 15px;
+    font-style: italic;
   }
 
   .text {
-    @extend .col-md-8;
-    @extend .col-xs-12;
-
+    width: 100%;
     margin-top: 20px;
     font-size: 18px;
     line-height: 1.5;

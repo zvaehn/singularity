@@ -16,5 +16,7 @@ LICENSE
 package.json
 todos.md
 thumbs/
-tmp/*
-cache/*
+tmp/
+cache/
+kirby/
+panel/

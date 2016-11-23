@@ -9,9 +9,7 @@ $posts = $pages->get('blog')->children()->visible()->sortBy('date')->flip()->pag
 
       <div class="row">
         <div class="blogposts">
-          <h2 class="headline"><?= $pages->get('blog')->recentPosts() ?></h2>
           <?php
-
           if($posts->count()) {
             foreach ($posts as $key => $post) {
               echo snippet('integrations/post', array(
@@ -20,7 +18,6 @@ $posts = $pages->get('blog')->children()->visible()->sortBy('date')->flip()->pag
               ));
             }
           }
-
           ?>
         </div>
 
@@ -46,7 +43,7 @@ $posts = $pages->get('blog')->children()->visible()->sortBy('date')->flip()->pag
           </div>
 
           <div class="middle-col">
-            <?= $posts->pagination()->page() ?> von <?= $posts->pagination()->pages() ?>
+            <?= $posts->pagination()->page() ?> <?= $page->nav_of() ?> <?= $posts->pagination()->pages() ?>
           </div>
 
           <div class="next-col">

@@ -188,14 +188,14 @@ abstract class UserAbstract {
     if(static::current()) {
       // logout active users first
       static::logout();
-      
+
       // don't preserve current session data
       // because of privilege level change
     } else {
       // get all the current session data
       $data = s::get();
 
-      // remove anything kirby related from 
+      // remove anything kirby related from
       // the current session data
       foreach($data as $key => $value) {
         if(str::startsWith($key, 'kirby_')) {
@@ -217,14 +217,16 @@ abstract class UserAbstract {
     s::set('kirby_auth_secret', $secret);
     s::set('kirby_auth_username', $this->username());
 
+    error_log(print_r(s::$cookie, true));
+
     cookie::set(
-      s::$name . '_auth', 
-      $key, 
-      s::$cookie['lifetime'], 
-      s::$cookie['path'], 
-      s::$cookie['domain'], 
-      s::$cookie['secure'], 
-      s::$cookie['httponly']
+      s::$name . '_auth',
+      $key
+      /*s::$cookie['lifetime'],
+      s::$cookie['path'],
+      s::$cookie['domain'],
+      s::$cookie['secure'],
+      s::$cookie['httponly']*/
     );
 
     return true;
@@ -233,7 +235,7 @@ abstract class UserAbstract {
 
   static public function logout() {
 
-    s::destroy();    
+    s::destroy();
 
     // remove the session cookie
     cookie::remove(s::$name . '_auth');
@@ -385,8 +387,8 @@ abstract class UserAbstract {
 
   static public function current() {
 
-    $cookey   = cookie::get(s::$name . '_auth'); 
-    $username = s::get('kirby_auth_username'); 
+    $cookey   = cookie::get(s::$name . '_auth');
+    $username = s::get('kirby_auth_username');
 
     if(empty($cookey)) {
       static::unauthorize();
@@ -411,7 +413,7 @@ abstract class UserAbstract {
 
   /**
    * Converts the user object to an array
-   * 
+   *
    * @return array
    */
   public function toArray() {
@@ -432,7 +434,7 @@ abstract class UserAbstract {
 
   /**
    * Improved @var_dump output
-   * 
+   *
    * @return array
    */
   public function __debuginfo() {

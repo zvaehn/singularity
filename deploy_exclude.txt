@@ -18,5 +18,3 @@ todos.md
 thumbs/
 tmp/
 cache/
-kirby/
-panel/

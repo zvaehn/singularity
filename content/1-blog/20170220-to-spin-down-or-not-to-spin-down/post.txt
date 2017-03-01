@@ -1,0 +1,26 @@
+Title: To spin-down or not to spin-down?!
+
+----
+
+Text: 
+
+Ich habe mir vor ein paar Wochen zwei WD Red mit 3TB gekauft die in meinem 2-Bay NAS im RAID-1 laufen.
+Hauptsächlich zur Dateiablage. Zusätzlich bietet QNAP einen TimeMachine Service an. Der läuft gleich mit. 
+
+Als erstes habe ich den Spin-Down Timer *(also die Zeit wann die Festplatten in den Standby-Modus gefahren werden)* auf 15 Minuten gestellt. 
+Über den Tag hinweg werden c.a. 8-10 TimeMachine-Backups erstellt. Das heißt konkret, dass die Festplatten 1x pro Stunde geweckt werden, sich max 5min drehen um zu arbeiten, dann noch 10min weiter drehen um schließlich für ~45min zu schlafen.
+
+Die Frage, die sich mir gestellt hat bezieht sich auf die minimale Abnutzung der Festplatten unter Berücksichtigung des Stromverbrauchs.
+In Festplatten sind Kugellager verbaut. Ich bin zwar kein Maschinenbauer, aber ich meine gehört zu haben, dass das die größte Reibung beim Anlaufen und Stoppen entsteht. 
+Laut (link: http://products.wdc.com/library/SpecSheet/DEU/2879-771442.pdf text: Western Digital target: new) haben die Platten eine  MTBF (Mean Time Between Failures) von 1.000.000 Stunden (also über 100 Jahre. what?!).
+Beide Festplatten haben eine Leistungsaufnahme von 8W. Die Betriebskosten für einen 24/7 (exclusive Nächtliches Standby) Betrieb belaufen sich im Monat auf c.a. 1,50€. Damit ließe sich der Stromverbrauch schon einmal vernachlässigen.
+
+Für mich ergibt sich die optimale Lösung, wenn ich den Festplatten Standby-Timer auf 1h stelle. Somit fahren sich die Platten nur runter wenn das MacBook aus ist und kein TimeMachine Backup initiiert wird.
+
+----
+
+Date: 2017-02-20
+
+----
+
+Tags: hardware,hdd

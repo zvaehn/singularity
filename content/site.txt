@@ -2,7 +2,7 @@ Title: hi im zvaehn
 
 ----
 
-Author: Sven Schiffer
+Author: hi im zvaehn
 
 ----
 
@@ -14,7 +14,7 @@ Keywords:
 
 ----
 
-Copyright: ©(date: Year) Sven Schiffer
+Copyright: ©(date: Year) hiimzvaehn.de
 
 ----
 

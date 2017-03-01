@@ -68,6 +68,10 @@ $(document).ready(function() {
     }
   });
 
+  $(window).resize(function(e) {
+    watchAffix();
+  });
+
   setTimeout(function() { $grid.packery(); }, 1000);
   setTimeout(function() { $grid.packery(); }, 2000);
 
@@ -84,14 +88,42 @@ $(document).ready(function() {
 
   scrollTopButton(400);
 
-  $('.js-blog-affix').affix({
+  /*$('.js-blog-affix').affix({
     offset: {
-      // top: 235
       top: 305
     }
-  });
+  });*/
+  watchAffix();
+
+  watchAffixMinSize();
 
 });
+
+function watchAffix() {
+  // Enable / Disable affix
+  var windowHeight = $(window).height();
+  var affixHeight   = $('.js-blog-affix').height();
+
+  if(affixHeight > windowHeight) {
+    $(window).off('.affix');
+  }
+  else {
+    $(window).on('.affix');
+
+    $('.js-blog-affix').affix({
+      offset: {
+        top: 305
+      }
+    });
+  }
+}
+
+function watchAffixMinSize() {
+  var contentHeight = $('.blogposts').height();
+  var affixHeight   = $('.js-blog-affix').height();
+
+  $('.blogposts').css('min-height', affixHeight + "px");
+}
 
 function scrollTopButton(offset) {
   offset = (offset) ? offset : 400;

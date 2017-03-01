@@ -2,16 +2,17 @@ Title: Impressum
 
 ----
 
-Text: 
+Text:
 
 ### 3rd Party Libraries
-bootstrap, bootstrap-sass, jquery, masonry.js, packery.js, unveil.js, pace.js, phpflickr api-wrapper, cosenary/instagram api-wrapper, 
+bootstrap, bootstrap-sass, jquery, masonry.js, packery.js, unveil.js, pace.js, phpflickr api-wrapper, cosenary/instagram api-wrapper,
 Made with Kirby
 
 
 ### Author Credits
-Icon made by (link: http://www.flaticon.com/authors/graphberry) from www.flaticon.com 
-Icon made by (link: http://www.flaticon.com/authors/simpleicon) from www.flaticon.com
+Icons made by (link: http://www.flaticon.com/authors/graphberry) from www.flaticon.com
+Icons made by (link: http://www.flaticon.com/authors/simpleicon) from www.flaticon.com
+Icons made by (link: http://www.freepik.com) from (link: http://www.flaticon.com) is licensed by Creative Commons BY 3.0
 
 
 ### Angaben gemäß § 5 TMG:

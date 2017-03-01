@@ -10,4 +10,4 @@ Isexternal: true
 
 ----
 
-Icon: github.svg
+Icon: social.svg

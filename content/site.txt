@@ -1,8 +1,8 @@
-Title: Singularity
+Title: hi im zvaehn
 
 ----
 
-Author: hi im zvaehn
+Author: Sven Schiffer
 
 ----
 
@@ -10,11 +10,11 @@ Description: // Student // Developer // Shutterbug
 
 ----
 
-Keywords: 
+Keywords:
 
 ----
 
-Copyright: ©(date: Year) Singularity
+Copyright: ©(date: Year) Sven Schiffer
 
 ----
 

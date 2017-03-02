@@ -170,7 +170,7 @@ hr.spacer {
 
   &-item {
     float: left;
-    padding: 2px;
+    padding: 0;
 
     img {
       display: block;
@@ -183,6 +183,7 @@ hr.spacer {
   &-item-content {
     overflow: hidden;
     text-align: center;
+    padding: 2px;
 
     > a {
       display: block;
@@ -247,6 +248,14 @@ hr.spacer {
   height: 40px;
   text-align: center;
   font-size: 10px;
+  opacity: 100;
+
+  &.-hidden {
+    transition: .3s;
+    margin-top: 0;
+    margin-bottom: 0;
+    opacity: 0;
+  }
 }
 
 .spinner > div {
@@ -255,6 +264,7 @@ hr.spacer {
   width: 6px;
   display: inline-block;
   margin-right: 2px;
+  transition: height .3s;
 
   -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
   animation: sk-stretchdelay 1.2s infinite ease-in-out;

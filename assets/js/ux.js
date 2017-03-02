@@ -81,22 +81,18 @@ $(document).ready(function() {
     $grid.packery();
 
     var spinner = $('.spinner');
-    if(spinner.is(":visible")) {
-      spinner.fadeOut('300');
+    if(!spinner.hasClass('-hidden')) {
+
+      spinner.addClass('-hidden');
+      // spinner.fadeOut('300');
     }
   });
 
   scrollTopButton(400);
 
-  /*$('.js-blog-affix').affix({
-    offset: {
-      top: 305
-    }
-  });*/
   watchAffix();
 
   watchAffixMinSize();
-
 });
 
 function watchAffix() {

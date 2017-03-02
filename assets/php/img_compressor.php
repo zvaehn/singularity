@@ -62,8 +62,6 @@ try {
         unlink($tmpfile);
       }
 
-      error_log($cachefile);
-
       if(file_exists($cachefile) && is_readable($cachefile)) {
         $tstring = gmdate('D, d M Y H:i:s \G\M\T', time() + $cacheoffset);
         header('Pragma: public');

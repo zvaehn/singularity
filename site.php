@@ -11,10 +11,11 @@ function get_compressorUrl($url) {
   // replacing rules
   $url = str_replace('/', '__-0-__', $url);
   $url = str_replace(':', '__-1-__', $url);
-  
+
   $encodedUrl = urlencode($url);
 
-  $fullUrl = "//" . $_SERVER['HTTP_HOST'] . $path . '__--__' . $encodedUrl;
+  // $fullUrl = "//" . $_SERVER['HTTP_HOST'] . $path . '__--__' . $encodedUrl;
+  $fullUrl = "//" . "static.hiimzvaehn.de" . $path . '__--__' . $encodedUrl;
 
   return $fullUrl;
 }

@@ -24,7 +24,6 @@ $cachedir     = $root_dir . '/cache/' . $folder . '/';
 @mkdir($cachedir, 0777, true);
 @mkdir($tmpdir, 0777, true);
 
-
 try {
   if($isvalidurl) {
     preg_match("/\b(\.jpg|\.JPG|\.png|\.PNG|\.gif|\.GIF)\b/", $imageUrl, $type);
@@ -33,8 +32,6 @@ try {
       $type      = strtolower(str_replace(".", "", $type[0]));
       $tmpfile   = $cachedir   . 'tmp_' . $filename . '.' . $type;
       $cachefile = $cachedir . $filename . '.' . $type;
-
-      error_log($tmpfile);
 
       // Is the file alerady cached?
       if(!file_exists($cachefile)) {
@@ -64,6 +61,8 @@ try {
         // Delete tempfile
         unlink($tmpfile);
       }
+
+      error_log($cachefile);
 
       if(file_exists($cachefile) && is_readable($cachefile)) {
         $tstring = gmdate('D, d M Y H:i:s \G\M\T', time() + $cacheoffset);

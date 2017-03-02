@@ -1,9 +1,10 @@
 <?php
 $root_dir     = realpath(dirname(__FILE__) . '/../../');
-$url          = (isset($_GET['url']) ? $_GET['url'] : false);
+$rawurl       = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+// $url          = (isset($_GET['url']) ? $_GET['url'] : false);
 $quality      = 80;
 $cacheoffset  = 7 * 24 * 60 * 60;
-$filename     = md5($url . $quality);
+$filename     = md5($rawurl . $quality);
 $folder       = substr($filename, 0, 2);
 $cachedir     = $root_dir . '/cache/' . $folder . '/';
 $errorfile    = $root_dir . '/assets/images/img_not_found_2.jpg';
@@ -13,9 +14,19 @@ $isvalidurl   = true;
 @mkdir($cachedir, 0777, true);
 @mkdir($tmpdir, 0777, true);
 
+$rawurl = urldecode($rawurl);
+
+// replacing rules
+$url = str_replace('__-0-__', '/', $rawurl);
+$url = str_replace('__-1-__', ':', $url);
+
+$parts = explode("__--__", $url); // split the request url from the full img url
+
+$imageUrl = $parts[sizeof($parts)-1];
+
 try {
   if($isvalidurl) {
-    preg_match("/\b(\.jpg|\.JPG|\.png|\.PNG|\.gif|\.GIF)\b/", $url, $type);
+    preg_match("/\b(\.jpg|\.JPG|\.png|\.PNG|\.gif|\.GIF)\b/", $imageUrl, $type);
 
     if(isset($type[0])) {
       $type      = strtolower(str_replace(".", "", $type[0]));
@@ -24,7 +35,7 @@ try {
 
       // Is the file alerady cached?
       if(!file_exists($cachefile)) {
-        if(file_put_contents($tmpfile, file_get_contents($url))) {
+        if(file_put_contents($tmpfile, file_get_contents($imageUrl))) {
           if($type == "jpg") {
             $img = imageCreateFromJpeg($tmpfile);
 

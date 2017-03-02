@@ -7,6 +7,10 @@
 # http://yourdomain.com/about-us/team
 RewriteEngine on
 
+# forward image cache links
+
+RewriteRule ^assets/imgcache/(.*)\.(jpg|jpeg|JPG|JPEG)$ /assets/php/img_compressor.php [L]
+
 # make sure to set the RewriteBase correctly
 # if you are running the site in a subfolder.
 # Otherwise links or the entire site will break.

@@ -16,11 +16,15 @@ for more information: http://getkirby.com/license
 */
 
 c::set('license', 'put your license key here');
-
-c::set('development', false);
+c::set('development', true);
 
 if(c::get('development')) {
   c::set('debug', true);
+}
+else {
+  c::set('debug', false);
+  c::set('panel.install', false);
+  c::set('plugin.html.minifier.active', false);
 }
 
 /*

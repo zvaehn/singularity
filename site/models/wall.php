@@ -13,7 +13,7 @@ class WallPage extends Page {
     $expireAt = $this->touched()->int() + $cacheDuration;
     $rebuildCache = ($now >= $expireAt) ? true : false;
 
-    if(false) {
+    if(c::get('development')) {
       echo "now: ". $now."<br>";
       echo "cache duration: ".$cacheDuration."s<br>";
       echo "touched at: ".$this->touched()->int()."<br>";

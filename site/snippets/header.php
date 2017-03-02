@@ -6,25 +6,25 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="HandheldFriendly" content="True">
 
-  <title><?= $site->title()->html() ?> | <?= $site->author()->html() ?></title>
+  <title><?= $site->title()->html() ?> | <?= $page->title() ?></title>
   <meta name="description" content="<?= $site->description()->html() ?>">
   <meta name="keywords" content="<?= $site->keywords()->html() ?>">
   <meta name="referrer" content="origin">
   <link rel="alternate" type="application/rss+xml" href="<?php echo url('blog/feed') ?>" title="<?= $site->author()->html() ?> - <?= html($pages->find('blog/feed')->title()) ?>" />
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
   <?php
   if(!c::get('development')):
   ?>
-  <meta name="robots" content="index,follow">
-  <meta http-equiv="cache-control" content="max-age=30">
-  <meta http-equiv="Expires" content="max-age=30">
-  <meta http-equiv="expires" content="Wed, 01 Jan 2020 11:11:11 GMT">
+    <meta name="robots" content="index,follow">
+    <meta http-equiv="cache-control" content="max-age=30">
+    <meta http-equiv="Expires" content="max-age=30">
+    <meta http-equiv="expires" content="Wed, 01 Jan 2020 11:11:11 GMT">
   <?php
   endif;
   ?>
 
-  <meta http-equiv="CONTENT-LANGUAGE" content="en-US,de">
+  <meta http-equiv="CONTENT-LANGUAGE" content="de,en-US">
 
   <?php
   if(c::get('development')) {

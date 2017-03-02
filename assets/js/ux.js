@@ -76,14 +76,15 @@ $(document).ready(function() {
   setTimeout(function() { $grid.packery(); }, 2000);
 
   $(".unveil").unveil(200, function() {
+
     $(this).addClass('-unveiled');
     $(window).trigger("lookup");
     $grid.packery();
 
-    var spinner = $('.spinner');
-    if(!spinner.hasClass('-hidden')) {
+    var $spinner = $('.spinner');
 
-      spinner.addClass('-hidden');
+    if(!$spinner.hasClass('-hidden')) {
+      $spinner.addClass('-hidden');
       // spinner.fadeOut('300');
     }
   });

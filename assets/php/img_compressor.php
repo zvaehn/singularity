@@ -33,6 +33,8 @@ try {
       $tmpfile   = $cachedir   . 'tmp_' . $filename . '.' . $type;
       $cachefile = $cachedir . $filename . '.' . $type;
 
+      error_log("imageurl: ".$imageUrl . ", cachefile: ".$cachefile);
+
       // Is the file alerady cached?
       if(!file_exists($cachefile)) {
         if(file_put_contents($tmpfile, file_get_contents($imageUrl))) {

@@ -14,8 +14,13 @@ function get_compressorUrl($url) {
 
   $encodedUrl = urlencode($url);
 
-  // $fullUrl = "//" . $_SERVER['HTTP_HOST'] . $path . '__--__' . $encodedUrl;
-  $fullUrl = "//" . "static.hiimzvaehn.de" . $path . '__--__' . $encodedUrl;
+  if(c::get('development')) {
+    $fullUrl = "//" . $_SERVER['HTTP_HOST'] . $path . '__--__' . $encodedUrl;
+  }
+  else {
+    $fullUrl = "//" . "static.hiimzvaehn.de" . $path . '__--__' . $encodedUrl;
+  }
+
 
   return $fullUrl;
 }

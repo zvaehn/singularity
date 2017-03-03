@@ -7,6 +7,7 @@ var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var cleanCSS = require('gulp-clean-css');
+var remoteSrc = require('gulp-remote-src');
 
 var sassOptions = {
   errLogToConsole: true,
@@ -14,8 +15,8 @@ var sassOptions = {
 };
 
 gulp.task('default', function() {
-  gulp.start('sass');
-  gulp.start('js');
+  gulp.start('minifycss');
+  gulp.start('minifyjs');
 });
 
 gulp.task('watch', function() {
@@ -24,7 +25,7 @@ gulp.task('watch', function() {
       console.log('\u27A1 File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 
-  gulp.watch(['assets/js/*.js'], ['minifyjs'])
+  gulp.watch(['assets/js/*.js', '!assets/js/analytics.js'], ['minifyjs'])
     .on('change', function(event) {
       console.log('\u27A1 File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
@@ -43,9 +44,16 @@ gulp.task('sass', function() {
 });
 
 // JS Task
-gulp.task('js', function() {
+gulp.task('analytics', function() {
+    remoteSrc(['analytics.js'], {
+        base: 'https://google-analytics.com/'
+    })
+    .pipe(gulp.dest('./assets/js/'));
+});
+
+gulp.task('js', ['analytics'], function() {
   return gulp
-    .src(['assets/js/*.js', '!assets/js/service-worker.js'])
+    .src(['assets/js/*.js'])
     .pipe(sourcemaps.init())
     .pipe(concat('script.js'))
     .pipe(sourcemaps.write())

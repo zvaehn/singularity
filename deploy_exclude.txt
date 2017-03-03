@@ -15,6 +15,6 @@ site/config/config.php
 LICENSE
 package.json
 todos.md
-thumbs/
-tmp/
-cache/
+/thumbs/
+/tmp/
+/cache/

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rsync -azh --stats --delete --progress --no-perms --no-owner --no-group --exclude-from=deploy_exclude.txt -e ssh ./ sven_schiffer@148.251.47.81:singularity.hiimzvaehn.de/
+rsync -azh --stats --delete --progress --no-perms --no-owner --no-group --exclude-from=deploy_exclude.txt -e ssh ./ sven_schiffer@148.251.47.81:hiimzvaehn.de/

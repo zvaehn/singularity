@@ -1,0 +1,37 @@
+Title: How i cached dynamic ressources
+
+----
+
+Text: 
+
+Wer sich den Code der Seite mal anschaut sieht, dass die Bilder zwar bei mir liegen, ursprünglich aber von Flickr und Instagram kommen. Die Antworten mit den vorhandenen Bildurls werden gecached. Die Bilder werden danach optimiert und zwischengespeichert. Dafür benutzte ich einen image-compressor, welcher die URL des zu ladenden Bildes als Query-Parameter entgegen nahm, schaute ob dieses bereits im cache vorliegt oder es direkt vom Provider läd, optimiert und local ablegt. 
+
+Der Query-Parameter zerstörte leider jegliche caching Mechanismen des Browsers. Was tun?
+
+Abhilfe sollte eine .htacces-Rewrite Regel schaffen.
+Das Konzept geht davon aus, dass Dateinamen respektive der URL vorliegen.
+Dies ist natürlich nicht der Fall, aber die Requests werden an meinen image-compressor weiter geleitet.
+
+<br>
+> RewriteRule ^assets/imgcache/(.*)\.(jpg|jpeg|JPG|JPEG)$ /assets/php/img_compressor.php [L]
+
+<br>
+
+Damit die URL Pfad erkannt wird muss diese URLencodiert werden, sowie spezielle Zeichen wie Doppelpunkt und Slash ersetzt werden.
+Der ImageCompressor schaut sich den letzten teil der URL an, decodiert diesen und wendet die umgekehrten Ersetzungsregeln an.
+
+Jetzt wo die originale URL des Bildproviders vorliegt, kann ganz einfach geschaut werden ob das Bild vorhanden ist oder erneut geladen werden muss.
+
+<br>
+
+Die Resultate können sich sehen lassen:
+(image: screen-shot-2017-03-03-at-12.19.38.png)
+(image: screen-shot-2017-03-03-at-12.30.45.png)
+
+----
+
+Date: 2017-03-03
+
+----
+
+Tags: code,cache,performance

@@ -59,7 +59,7 @@ try {
         }*/
       }
       else {
-        error_log("Unable to create tmpfile: " . $tmpfile);
+        throw new Exception("Unable to create tmpfile: " . $tmpfile);
       }
 
       // Delete tempfile
@@ -79,11 +79,11 @@ try {
       exit();
     }
     else {
-      error_log("file does not exist nor writeable");
+      throw new Exception("File does not exist nor writeable.");
     }
   }
   else {
-    error_log("type not set");
+    throw new Exception("Image type not set.");
   }
 }
 catch (Exception $e) {

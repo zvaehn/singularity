@@ -10,11 +10,11 @@ readme.md
 deploy
 deploy_exclude.txt
 site/accounts/.logins
-site/accounts/
+site/accounts/*
 site/config/config.php
 LICENSE
 package.json
 todos.md
-/thumbs/
+/thumbs/*
 /tmp/
 /cache/

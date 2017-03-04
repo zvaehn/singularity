@@ -1,7 +1,9 @@
 
 # Created by https://www.gitignore.io/api/php,kirby2,less,sass,composer,git,macos,windows,linux
 
-#!! ERROR: php is undefined. Use list command to see defined gitignore types !!#
+
+/kirby/
+/panel/
 
 ### Kirby2 ###
 ## Kirby 2 | http://getkirby.com

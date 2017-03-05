@@ -24,7 +24,6 @@ if(c::get('development')) {
 else {
   c::set('debug', false);
   c::set('panel.install', false);
-  c::set('plugin.html.minifier.active', false);
 }
 
 /*

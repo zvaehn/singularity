@@ -32,25 +32,22 @@
   <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
   <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
   <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+  <meta http-equiv="CONTENT-LANGUAGE" content="de,en-US">
 
   <?php
-  if(!c::get('development')):
+  // Development mode
+  if(c::get('development')) {
+    echo css('assets/compiled/style.css');
+  }
+  // Live mode
+  else {
   ?>
     <meta name="robots" content="index,follow">
     <meta http-equiv="cache-control" content="max-age=30">
     <meta http-equiv="Expires" content="max-age=30">
     <meta http-equiv="expires" content="Wed, 01 Jan 2020 11:11:11 GMT">
-  <?php
-  endif;
-  ?>
-
-  <meta http-equiv="CONTENT-LANGUAGE" content="de,en-US">
 
   <?php
-  if(c::get('development')) {
-    echo css('assets/compiled/style.css');
-  }
-  else {
     echo "<style>";
     echo file_get_contents('assets/compiled/style.min.css');
     echo "</style>";

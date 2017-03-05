@@ -13,6 +13,7 @@
   </footer>
 
   <?php
+  // Development mode
   if(c::get('development')) {
     ?>
     <div class="breakpoint-debug device-xs visible-xs">xs</div>
@@ -23,10 +24,15 @@
     <script async type="text/javascript" src="<?= kirby()->urls()->assets() . "/compiled/script.js" ?>"></script>
     <?php
   }
+  // Live mode
   else {
-    if($site->analytics()->exists()) {
+    $jsfile = kirby()->roots()->assets() . "/compiled/script.min.js";
+    $jsfiletime = filemtime($jsfile);
     ?>
-      <script async type="text/javascript" src="<?= kirby()->urls()->assets() . "/compiled/script.min.js" ?>"></script>
+      <script async type="text/javascript" src="<?= kirby()->urls()->assets() . "/compiled/script.js?v=" . md5($jsfiletime) ?>"></script>
+    <?php
+    if($site->analytics()->exists()) {
+      ?>
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -55,7 +61,7 @@
   }
 
   // Force php session cookie removal
-  setcookie('PHPSESSID','value',time()-1);  
+  setcookie('PHPSESSID','value',time()-1);
   ?>
   </body>
 </html>

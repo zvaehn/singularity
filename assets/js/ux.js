@@ -78,6 +78,8 @@ $(document).ready(function() {
   $(".unveil").unveil(200, function() {
 
     $(this).addClass('-unveiled');
+    $(this).parents('.grid-item').addClass('-unveiled');
+
     $(window).trigger("lookup");
     $grid.packery();
 
@@ -85,14 +87,11 @@ $(document).ready(function() {
 
     if(!$spinner.hasClass('-hidden')) {
       $spinner.addClass('-hidden');
-      // spinner.fadeOut('300');
     }
   });
 
   scrollTopButton(400);
-
   watchAffix();
-
   watchAffixMinSize();
 });
 

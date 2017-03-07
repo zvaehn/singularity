@@ -15,7 +15,7 @@ return function($site, $pages, $page) {
     $page->update(array('touched' => time()));
 
     if(c::get('development')) {
-      echo "<script type='text/javascript'>console.log('cache rebuild.')</script>";
+      error_log("<script type='text/javascript'>console.log('cache rebuild.')</script>");
     }
 
     // -----------------------------------------------------

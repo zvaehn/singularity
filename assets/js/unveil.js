@@ -10,18 +10,23 @@
 
 ;(function($) {
 
-  $.fn.unveil = function(threshold, callback) {
+  $.fn.unveil = function(threshold, callback, options) {
 
     var $w = $(window),
         th = threshold || 0,
         retina = window.devicePixelRatio > 1,
         attrib = retina? "data-src-retina" : "data-src",
         images = this,
+        options = options || {},
+        queueCounter = 0,
         loaded;
 
     this.one("unveil", function() {
+      if (typeof options.beforeUnveil === "function") options.beforeUnveil.call(this);
+
       var source = this.getAttribute(attrib);
       source = source || this.getAttribute("data-src");
+
       if (source) {
         this.setAttribute("src", source);
         if (typeof callback === "function") callback.call(this);
@@ -41,8 +46,49 @@
         return eb >= wt - th && et <= wb + th;
       });
 
+      var inviewImages = inview.length;
+
+      for(var i = 0; i < inview.length; i++) {
+        var j = i;
+
+        // Add onload-event when not bined yet
+        var imgEvents = window.jQuery._data(inview[i], "events");
+        var valid = true;
+
+        valid = valid && (typeof imgEvents !== "undefined");
+
+        if(valid) {
+          valid = valid && (typeof imgEvents.load === "undefined");
+        }
+
+        if(valid) {
+          queueCounter++;
+
+          window.jQuery(inview[i]).on('load', function() {
+            queueCounter--;
+
+            var loadPercentage = 100 - (queueCounter/inviewImages * 100);
+
+            // console.log("images left: ", queueCounter, totalImagesInSet);
+            // console.log(loadPercentage + "% loaded.");
+            // what?!
+            if(loadPercentage >= 0 && loadPercentage <= 100) {
+              if (typeof options.imageSetProgressCallback === "function") options.imageSetProgressCallback.call(this, loadPercentage);
+            }
+
+            if(queueCounter == 0) {
+              if (typeof options.afterImageSetHasBeenLoaded === "function") options.afterImageSetHasBeenLoaded.call(this);
+            }
+          });
+        }
+      }
+
       loaded = inview.trigger("unveil");
       images = images.not(loaded);
+
+      /*console.log("inview: ", inviewImages);
+      console.log("loaded: ", loaded.length);
+      console.log("not loaded: ", images.length);*/
     }
 
     $w.on("scroll.unveil resize.unveil lookup.unveil", unveil);
@@ -50,7 +96,6 @@
     unveil();
 
     return this;
-
   };
 
 })(window.jQuery || window.Zepto);

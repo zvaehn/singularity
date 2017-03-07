@@ -1,14 +1,19 @@
+<?php
+$height = $img['images']['standard_resolution']['height'];
+$width  = $img['images']['standard_resolution']['width'];
+$url    = get_compressorUrl($img['images']['standard_resolution']['url']);
+?>
+
 <a href="<?= $img['link'] ?>" target="_blank">
-  <figure class="img-wrapper inline-content">
+  <figure class="img-wrapper inline-content" data-height="<?= $height ?>" data-width="<?= $width ?>">
     <img class="unveil"
-      src="<?= get_compressorUrl($placeholder) ?>"
-      data-src="<?= get_compressorUrl($img['images']['standard_resolution']['url']) ?>"
-      height="<?= $img['images']['standard_resolution']['height'] ?>px"
-      width="<?= $img['images']['standard_resolution']['width'] ?>px">
+      data-src="<?= $url ?>"
+      height="<?= $height ?>px"
+      width="<?= $width ?>px">
     <noscript>
       <img src="<?= get_compressorUrl($img['images']['standard_resolution']['url']) ?>"
-        height="<?= $img['images']['standard_resolution']['height'] ?>px"
-        width="<?= $img['images']['standard_resolution']['width'] ?>px">
+        height="<?= $height ?>px"
+        width="<?= $width ?>px">
     </noscript>
     <figcaption>
       <div class="alignment">

@@ -1,7 +1,6 @@
 <a href="<?= "https://www.flickr.com/photos/". $img['owner'] ."/". $img['id'] ."" ?>" target="_blank">
-  <figure class="img-wrapper inline-content">
+  <figure class="img-wrapper inline-content" data-height="<?= $img['height_m'] ?>" data-width="<?= $img['width_m'] ?>">
     <img class='unveil'
-      src="<?= get_compressorUrl($placeholder) ?>"
       data-src="<?= get_compressorUrl($img['url_m']) ?>"
       height="<?= $img['height_m'] ?>px"
       width="<?= $img['width_m'] ?>px">

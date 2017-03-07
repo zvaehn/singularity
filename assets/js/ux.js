@@ -42,6 +42,9 @@ $(document).ready(function() {
   }
 
   $(window).on('resize', function(el) {
+    calculateGridWrapperSize(".img-wrapper");
+    watchAffix();
+
     $(window).trigger("lookup");
     $grid.packery();
   });
@@ -68,32 +71,79 @@ $(document).ready(function() {
     }
   });
 
-  $(window).resize(function(e) {
-    watchAffix();
-  });
-
   setTimeout(function() { $grid.packery(); }, 1000);
   setTimeout(function() { $grid.packery(); }, 2000);
 
-  $(".unveil").unveil(200, function() {
+  var unveilCounter = $(".unveil").length;
+  var lastPercentage = 0;
 
+  $(".unveil").unveil(200, function() {
     $(this).addClass('-unveiled');
     $(this).parents('.grid-item').addClass('-unveiled');
 
     $(window).trigger("lookup");
     $grid.packery();
+  },
+  {
+    beforeUnveil: function() {
+      if(lastPercentage == 0) {
+        $('.pace-progress').css('transform', 'translate3d(0%, 0px, 0px)');
+        // console.log("reset.");
+      }
 
-    var $spinner = $('.spinner');
+      var $spinner = $('.spinner');
 
-    if(!$spinner.hasClass('-hidden')) {
-      $spinner.addClass('-hidden');
+      if(!$spinner.hasClass('-hidden')) {
+        $spinner.addClass('-hidden');
+      }
+
+      // $('.imgSpinner').addClass('-spinning');
+    },
+    afterImageSetHasBeenLoaded: function() {
+      //$('.imgSpinner').removeClass('-spinning');
+      // console.log("imageset finished loading.");
+      // just to be sure
+      $('.pace-progress').css('transform', 'translate3d(100%, 0px, 0px)');
+    },
+    imageSetProgressCallback: function(percent) {
+      console.log("popped from function stack", percent);
+
+      $('.pace-progress').css('transform', 'translate3d('+percent+'%, 0px, 0px)');
+      return;
+      // percent = (percent < 5) ? 5 : percent;
+      if(lastPercentage <= percent) {
+        lastPercentage = percent;
+        $('.pace-progress').css('transform', 'translate3d('+percent+'%, 0px, 0px)');
+
+        // console.log(percent);
+
+        if(lastPercentage >= 100) {
+          lastPercentage = 0;
+          // console.log("100% reached");
+        }
+      }
     }
   });
 
+  calculateGridWrapperSize(".img-wrapper");
   scrollTopButton(400);
   watchAffix();
   watchAffixMinSize();
 });
+
+
+function calculateGridWrapperSize(selector) {
+  $(selector).each(function(index, el) {
+    var height  = $(el).data('height');
+    var width   = $(el).data('width');
+    var currentWidth  = $(el).outerWidth();
+
+    var cropFactor = (currentWidth / width) * 100;
+    var croppedHeight = Math.round(height * cropFactor / 100);
+
+    $(el).height(croppedHeight + "px");
+  });
+}
 
 function watchAffix() {
   // Enable / Disable affix

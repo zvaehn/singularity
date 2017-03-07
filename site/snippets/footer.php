@@ -28,8 +28,9 @@
   else {
     $jsfile = kirby()->roots()->assets() . "/compiled/script.min.js";
     $jsfiletime = filemtime($jsfile);
+    $jsurl = kirby()->urls()->assets() . "/compiled/script.js?v=" . md5($jsfiletime);
     ?>
-      <script async type="text/javascript" src="<?= kirby()->urls()->assets() . "/compiled/script.js?v=" . md5($jsfiletime) ?>"></script>
+      <script async type="text/javascript" src="<?= $jsurl ?>"></script>
     <?php
     if($site->analytics()->exists()) {
       ?>
@@ -37,7 +38,7 @@
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','<?= url("assets/compiled/script.min.js") ?>','ga');
+      })(window,document,'script','<?= $jsurl ?>','ga');
 
         var GA_LOCAL_STORAGE_KEY = 'ga:clientId';
 

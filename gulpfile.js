@@ -29,6 +29,9 @@ gulp.task('watch', function() {
     .on('change', function(event) {
       console.log('\u27A1 File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
+
+  gulp.start('minifycss');
+  gulp.start('minifyjs');
 });
 
 gulp.task('sass', function() {

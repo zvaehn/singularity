@@ -66,12 +66,8 @@
 
           window.jQuery(inview[i]).on('load', function() {
             queueCounter--;
-
             var loadPercentage = 100 - (queueCounter/inviewImages * 100);
 
-            // console.log("images left: ", queueCounter, totalImagesInSet);
-            // console.log(loadPercentage + "% loaded.");
-            // what?!
             if(loadPercentage >= 0 && loadPercentage <= 100) {
               if (typeof options.imageSetProgressCallback === "function") options.imageSetProgressCallback.call(this, loadPercentage);
             }

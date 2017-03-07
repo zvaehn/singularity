@@ -229,6 +229,7 @@ hr.spacer {
 
   .img-wrapper {
     overflow: hidden;
+    background: #efefef;
     // background-color: #6A6A6A;
 
     /*&:before {
@@ -255,6 +256,15 @@ hr.spacer {
     > img {
       transform: scale(1);
       transition: all 1s;
+
+      &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #efefef; // important: same as .img-wrapper
+      }
     }
 
     &:hover > img {
@@ -280,6 +290,7 @@ hr.spacer {
   right: 100%;
   width: 100%;
   height: 2px;
+  transition: all 1s;
 }
 
 .pagination {

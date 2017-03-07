@@ -88,7 +88,6 @@ $(document).ready(function() {
     beforeUnveil: function() {
       if(lastPercentage == 0) {
         $('.pace-progress').css('transform', 'translate3d(0%, 0px, 0px)');
-        // console.log("reset.");
       }
 
       var $spinner = $('.spinner');
@@ -96,30 +95,22 @@ $(document).ready(function() {
       if(!$spinner.hasClass('-hidden')) {
         $spinner.addClass('-hidden');
       }
-
-      // $('.imgSpinner').addClass('-spinning');
     },
     afterImageSetHasBeenLoaded: function() {
-      //$('.imgSpinner').removeClass('-spinning');
-      // console.log("imageset finished loading.");
       // just to be sure
       $('.pace-progress').css('transform', 'translate3d(100%, 0px, 0px)');
     },
     imageSetProgressCallback: function(percent) {
-      console.log("popped from function stack", percent);
+      // console.log("loaded " + percent+ "% of current load operations.");
 
       $('.pace-progress').css('transform', 'translate3d('+percent+'%, 0px, 0px)');
-      return;
-      // percent = (percent < 5) ? 5 : percent;
+
       if(lastPercentage <= percent) {
         lastPercentage = percent;
         $('.pace-progress').css('transform', 'translate3d('+percent+'%, 0px, 0px)');
 
-        // console.log(percent);
-
         if(lastPercentage >= 100) {
           lastPercentage = 0;
-          // console.log("100% reached");
         }
       }
     }

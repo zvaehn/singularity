@@ -77,7 +77,6 @@
       </div>
     </div>
   </div>
-
-  <div class="imgSpinner">Loading images<span>.</span><span>.</span><span>.</span></div>
+  
 </main>
 <?php snippet('footer') ?>

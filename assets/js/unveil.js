@@ -34,7 +34,11 @@
     });
 
     function unveil() {
+      var i = 0;
+
       var inview = images.filter(function() {
+        // if(i++ >= 2) return false;
+
         var $e = $(this);
         if ($e.is(":hidden")) return;
 
@@ -68,9 +72,9 @@
             queueCounter--;
             var loadPercentage = 100 - (queueCounter/inviewImages * 100);
 
-            if(loadPercentage >= 0 && loadPercentage <= 100) {
-              if (typeof options.imageSetProgressCallback === "function") options.imageSetProgressCallback.call(this, loadPercentage);
-            }
+            // if(loadPercentage >= 0 && loadPercentage <= 100) {
+              if (typeof options.imageSetProgressCallback === "function") options.imageSetProgressCallback.call(this, this, loadPercentage);
+            // }
 
             if(queueCounter == 0) {
               if (typeof options.afterImageSetHasBeenLoaded === "function") options.afterImageSetHasBeenLoaded.call(this);

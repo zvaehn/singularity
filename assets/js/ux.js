@@ -56,7 +56,7 @@ $(document).ready(function() {
   });
 
   // improves layout in cost of performance
-  var lastChecked = 0;
+  /*var lastChecked = 0;
 
   $(window).on('scroll', function(e) {
     var now = Date.now();
@@ -69,23 +69,26 @@ $(document).ready(function() {
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
       $grid.packery();
     }
-  });
+  });*/
 
   setTimeout(function() { $grid.packery(); }, 1000);
   setTimeout(function() { $grid.packery(); }, 2000);
 
   var unveilCounter = $(".unveil").length;
   var lastPercentage = 0;
+  var processStack = 0;
 
   $(".unveil").unveil(200, function() {
-    $(this).addClass('-unveiled');
     $(this).parents('.grid-item').addClass('-unveiled');
 
     $(window).trigger("lookup");
+
     $grid.packery();
   },
   {
-    beforeUnveil: function() {
+    beforeUnveil: function(test) {
+      processStack++;
+
       if(lastPercentage == 0) {
         $('.pace-progress').css('transform', 'translate3d(0%, 0px, 0px)');
       }
@@ -100,8 +103,9 @@ $(document).ready(function() {
       // just to be sure
       $('.pace-progress').css('transform', 'translate3d(100%, 0px, 0px)');
     },
-    imageSetProgressCallback: function(percent) {
-      // console.log("loaded " + percent+ "% of current load operations.");
+    imageSetProgressCallback: function(image, percent) {
+      $(image).addClass('-unveiled');
+      processStack--;
 
       $('.pace-progress').css('transform', 'translate3d('+percent+'%, 0px, 0px)');
 

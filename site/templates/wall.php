@@ -77,6 +77,6 @@
       </div>
     </div>
   </div>
-  
+
 </main>
 <?php snippet('footer') ?>

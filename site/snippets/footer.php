@@ -28,7 +28,7 @@
   else {
     $jsfile = kirby()->roots()->assets() . "/compiled/script.min.js";
     $jsfiletime = filemtime($jsfile);
-    $jsurl = kirby()->urls()->assets() . "/compiled/script.js?v=" . md5($jsfiletime);
+    $jsurl = kirby()->urls()->assets() . "/compiled/script.min.js?v=" . md5($jsfiletime);
     ?>
       <script async type="text/javascript" src="<?= $jsurl ?>"></script>
     <?php

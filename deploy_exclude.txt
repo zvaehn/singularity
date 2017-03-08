@@ -18,3 +18,4 @@ todos.md
 /thumbs/*
 /tmp/
 /cache/
+wall.txt

@@ -217,18 +217,27 @@ function inlineSVG() {
 }
 
 function analytics() {
-  if(!development) {
+  if(!development && typeof ga === "function") {
     $('.social-link-list a').on('click', function(event) {
-      if(typeof ga === "function") {
-        var destination = $(this).attr('href');
+      var destination = $(this).attr('href');
 
-        ga('send', 'event', {
-          eventCategory: 'Outbound Link',
-          eventAction: 'click',
-          eventLabel: destination,
-          transport: 'beacon'
-        });
-      }
+      ga('send', 'event', {
+        eventCategory: 'Social Link',
+        eventAction: 'click',
+        eventLabel: destination,
+        transport: 'beacon'
+      });
+    });
+
+    $('.grid-item-content a').on('click', function(event) {
+      var destination = $(this).attr('href');
+
+      ga('send', 'event', {
+        eventCategory: 'Picture Link',
+        eventAction: 'click',
+        eventLabel: destination,
+        transport: 'beacon'
+      });
     });
   }
 }

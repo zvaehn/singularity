@@ -15,11 +15,28 @@
     font-weight: 300;
   }
 
+  .nav-col {
+    @extend .col-xs-12;
+
+    @media (max-width: $screen-xs-max) {
+      @media (orientation: landscape) {
+        .navigation {
+          text-align: right;
+        }
+      }
+    }
+  }
+
   .avatar-col {
     @extend .col-sm-6;
 
     @media (max-width: $screen-xs-max) {
       margin-bottom: 20px;
+
+      @media (orientation: landscape) {
+        float: left;
+        width: 50%;
+      }
     }
 
     text-align: center;
@@ -42,14 +59,18 @@
   .meta-col {
     @extend .col-sm-6;
 
+    text-align: center;
+
+    @media (orientation: landscape) {
+      float: left;
+      width: 50%;
+      text-align: left;
+    }
+
     p {
       font-weight: 300;
       color: #888;
     }
-  }
-
-  .nav-col {
-    @extend .col-xs-12;
   }
 }
 

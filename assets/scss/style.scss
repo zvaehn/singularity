@@ -194,6 +194,21 @@ hr.spacer {
 .grid {
   overflow: hidden;
 
+  .image-col {
+    @extend .col-xs-12;
+    @extend .col-sm-6;
+    @extend .col-md-3;
+
+    padding: 0;
+
+    @media (max-width: $screen-xs-max) {
+      @media (orientation: landscape) {
+        width: 50%;
+        margin: 0;
+      }
+    }
+  }
+
   &:after {
     content: '';
     display: block;
@@ -229,29 +244,7 @@ hr.spacer {
 
   .img-wrapper {
     overflow: hidden;
-    background: #efefef;
-    // background-color: #6A6A6A;
-
-    /*&:before {
-      @keyframes spinner {
-        to {transform: rotate(360deg);}
-      }
-
-      content: '';
-      box-sizing: border-box;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      margin-top: -10px;
-      margin-left: -10px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      border-top-color: #07d;
-      border-bottom-color: #07d;
-      animation: spinner .8s ease infinite;
-    }*/
+    background-color: #efefef;
 
     > img {
       transform: scale(1);
@@ -276,7 +269,6 @@ hr.spacer {
 .pace {
   -webkit-pointer-events: none;
   pointer-events: none;
-
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;

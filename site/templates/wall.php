@@ -38,7 +38,7 @@
 
               // flickr post
               case 'flickr': ?>
-                <div class='grid-item col-xs-12 col-sm-6 col-md-3' id="grid-id-<?= $key ?>">
+                <div class='grid-item image-col' id="grid-id-<?= $key ?>">
                   <div class="grid-item-content">
                     <?= snippet('integrations/flickr', array(
                       'img' => $post['data'],
@@ -54,7 +54,7 @@
               // instagram post
               case 'instagram':
                 ?>
-                <div class='grid-item col-xs-12 col-sm-6 col-md-3' id="grid-id-<?= $key ?>">
+                <div class='grid-item image-col' id="grid-id-<?= $key ?>">
                   <div class="grid-item-content">
                     <?= snippet('integrations/instagram', array(
                       'img' => $post['data'],

@@ -30,7 +30,7 @@
     $jsfiletime = filemtime($jsfile);
     $jsurl = kirby()->urls()->assets() . "/compiled/script.min.js?v=" . md5($jsfiletime);
     ?>
-      <script async type="text/javascript" src="<?= $jsurl ?>"></script>
+      <!--<script async type="text/javascript" src="<?= $jsurl ?>"></script>-->>
     <?php
     if($site->analytics()->exists()) {
       ?>

@@ -218,6 +218,7 @@ function inlineSVG() {
 
 function analytics() {
   if(!development && typeof ga === "function") {
+    // Track social link referals
     $('.social-link-list a').on('click', function(event) {
       var destination = $(this).attr('href');
 
@@ -229,6 +230,7 @@ function analytics() {
       });
     });
 
+    // Track image clicks
     $('.grid-item-content a').on('click', function(event) {
       var destination = $(this).attr('href');
 
@@ -238,6 +240,41 @@ function analytics() {
         eventLabel: destination,
         transport: 'beacon'
       });
+    });
+
+    // Track scroll position
+    var reachedMid = false;
+    var reachedBottom = false;
+    var threshold = 200;
+    var offset = $(window).height();
+
+    $(window).on('scroll', function(event) {
+      var scroll = $(window).scrollTop();
+      var totalHeight = $('body').height();
+      var bottomMarker = totalHeight - offset - threshold;
+      var middleMarker = Math.round(bottomMarker/2);
+
+      if(scroll >= middleMarker && !reachedMid) {
+        reachedMid = true;
+
+        ga('send', 'event', {
+          eventCategory: 'Scroll Position',
+          eventAction: 'scroll',
+          eventLabel: 'Scrolled to middle.',
+          transport: 'beacon'
+        });
+      }
+
+      if(scroll >= bottomMarker && !reachedBottom) {
+        reachedBottom = true;
+
+        ga('send', 'event', {
+          eventCategory: 'Scroll Position',
+          eventAction: 'scroll',
+          eventLabel: 'Scrolled to bottom.',
+          transport: 'beacon'
+        });
+      }
     });
   }
 }

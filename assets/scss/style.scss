@@ -248,6 +248,7 @@ hr.spacer {
 
     > img {
       transform: scale(1);
+      // filter: blur(0);
       transition: all 1s;
 
       &:before {
@@ -262,7 +263,7 @@ hr.spacer {
 
     &:hover > img {
       transform: scale(1.1);
-      filter: blur(1px);
+      // filter: blur(1px);
     }
   }
 }

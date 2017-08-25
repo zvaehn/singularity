@@ -9,7 +9,8 @@ $url    = get_compressorUrl($img['images']['standard_resolution']['url']);
     <img class="unveil"
       data-src="<?= $url ?>"
       height="<?= $height ?>px"
-      width="<?= $width ?>px">
+      width="<?= $width ?>px"
+      alt="<?= excerpt($img['caption']['text'], 100) ?>">
     <noscript>
       <img src="<?= get_compressorUrl($img['images']['standard_resolution']['url']) ?>"
         height="<?= $height ?>px"

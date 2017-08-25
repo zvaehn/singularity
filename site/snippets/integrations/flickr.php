@@ -3,11 +3,13 @@
     <img class='unveil'
       data-src="<?= get_compressorUrl($img['url_m']) ?>"
       height="<?= $img['height_m'] ?>px"
-      width="<?= $img['width_m'] ?>px">
+      width="<?= $img['width_m'] ?>px"
+      alt="<?= $img['title'] ?>">
     <noscript>
       <img src="<?= get_compressorUrl($img['url_m']) ?>"
         height="<?= $img['height_m'] ?>px"
-        width="<?= $img['width_m'] ?>px">
+        width="<?= $img['width_m'] ?>px"
+        alt="<?= $img['title'] ?>">
     </noscript>
     <figcaption>
       <div class="alignment">

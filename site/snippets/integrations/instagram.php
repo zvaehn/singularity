@@ -8,13 +8,13 @@ $url    = get_compressorUrl($img['images']['standard_resolution']['url']);
   <figure class="img-wrapper inline-content" data-height="<?= $height ?>" data-width="<?= $width ?>">
     <img class="unveil"
       data-src="<?= $url ?>"
-      height="<?= $height ?>px"
-      width="<?= $width ?>px"
+      height="<?= $height ?>"
+      width="<?= $width ?>"
       alt="<?= excerpt($img['caption']['text'], 100) ?>">
     <noscript>
       <img src="<?= get_compressorUrl($img['images']['standard_resolution']['url']) ?>"
-        height="<?= $height ?>px"
-        width="<?= $width ?>px">
+        height="<?= $height ?>"
+        width="<?= $width ?>">
     </noscript>
     <figcaption>
       <div class="alignment">

@@ -22,6 +22,8 @@ $(document).ready(function() {
     percentPosition: true
   });
 
+  calculateGridWrapperSize(".img-wrapper");
+
   // improves layout in cost of performance
   /*var lastChecked = 0;
 
@@ -90,7 +92,6 @@ $(document).ready(function() {
   });
 
   // inlineSVG();
-  calculateGridWrapperSize(".img-wrapper");
   watchAffix();
   watchAffixMinSize();
   scrollTopButton(400);

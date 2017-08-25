@@ -36,3 +36,4 @@ Starterkit repository from Github.
 - run `npm install`
 - run `composer update`
 - create the folder `site/cache/wall` and make sure its writeable
+- copy kirby's `panel` and `kirby` folder into the root directory.

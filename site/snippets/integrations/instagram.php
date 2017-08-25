@@ -4,7 +4,7 @@ $width  = $img['images']['standard_resolution']['width'];
 $url    = get_compressorUrl($img['images']['standard_resolution']['url']);
 ?>
 
-<a href="<?= $img['link'] ?>" target="_blank">
+<a href="<?= $img['link'] ?>" target="_blank" rel="noopener">
   <figure class="img-wrapper inline-content" data-height="<?= $height ?>" data-width="<?= $width ?>">
     <img class="unveil"
       data-src="<?= $url ?>"

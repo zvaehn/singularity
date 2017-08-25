@@ -56,10 +56,10 @@ return function($site, $pages, $page) {
       // Check if instagram is enabled and valid
       if($instagramPage->accessToken()) {
         $instagram->setAccessToken($instagramPage->accessToken()->value());
+
         $media = $instagram->getUserMedia('self', 20);
 
         if(property_exists($media, "data")) {
-          // TodO: get back to more then 20 posts...
           foreach ($media->data as $key => $item) {
             array_push($walldata, array(
               'type' => 'instagram',
@@ -69,7 +69,8 @@ return function($site, $pages, $page) {
           }
         }
         else {
-          if(c::get('development')) error_log("Instagram request error.");
+          $message = property_exists($media, "error_message") ? $media->error_message : '-';
+          if(c::get('development')) error_log("Instagram request error: ".$message);
         }
       }
       else {

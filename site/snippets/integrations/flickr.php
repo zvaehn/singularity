@@ -1,4 +1,4 @@
-<a href="<?= "https://www.flickr.com/photos/". $img['owner'] ."/". $img['id'] ."" ?>" target="_blank">
+<a href="<?= "https://www.flickr.com/photos/". $img['owner'] ."/". $img['id'] ."" ?>" target="_blank" rel="noopener">
   <figure class="img-wrapper inline-content" data-height="<?= $img['height_m'] ?>" data-width="<?= $img['width_m'] ?>">
     <img class='unveil'
       data-src="<?= get_compressorUrl($img['url_m']) ?>"

@@ -10,6 +10,8 @@
   <meta name="description" content="<?= $site->description()->html() ?>">
   <meta name="keywords" content="<?= $site->keywords()->html() ?>">
   <meta name="referrer" content="origin">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#EE3148">
   <link rel="alternate" type="application/rss+xml" href="<?php echo url('blog/feed') ?>" title="<?= $site->author()->html() ?> - <?= html($pages->find('blog/feed')->title()) ?>" />
 
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
@@ -64,7 +66,7 @@
         <div class="nav-col">
           <nav class="navigation" role="navigation">
             <ul class="menu-items">
-              <li><a href="<?= $site->url() ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+              <li><a href="<?= $site->url() ?>" title="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
               <?php
               foreach ($site->pages()->visible() as $key => $page) {
               ?>
@@ -79,7 +81,7 @@
 
       <div class="row">
         <div class="avatar-col">
-          <a class="avatar" href="<?= url() ?>">
+          <a class="avatar" href="<?= $site->url() ?>" title="Home">
             <?php
             $avatar = $site->image($site->Avatar());
             $thumb = thumb($avatar , array('width' => 300, 'crop' => true));
@@ -100,7 +102,7 @@
             <?php
             foreach ($links as $link): ?>
               <li>
-                <a href="<?= $link->link() ?>" target="<?= ($link->isExternal()->value() == "true") ? '_blank' : '_self' ?>">
+                <a href="<?= $link->link() ?>" target="<?= ($link->isExternal()->value() == "true") ? '_blank' : '_self' ?>" title="<?= $link->icon()->title() ?>" rel="noopener">
                   <?php
                   $image = $link->image($link->icon());
                   ?>

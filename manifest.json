@@ -1,0 +1,15 @@
+{
+  "short_name": "hiimzvaehn",
+  "name": "hiimzvaehn.de",
+  "icons": [
+    {
+      "src":"favicon-196x196.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "",
+  "background_color": "#FAFAFA",
+  "theme_color": "#EE3148",
+  "display": "fullscreen"
+}

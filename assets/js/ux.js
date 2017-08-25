@@ -8,6 +8,8 @@ $(document).ready(function() {
     isMobileDevice = true;
   }
 
+  calculateGridWrapperSize(".img-wrapper");
+
   $(window).on('resize', function(el) {
     calculateGridWrapperSize(".img-wrapper");
     watchAffix();
@@ -21,8 +23,6 @@ $(document).ready(function() {
     columnWidth: '.grid-sizer',
     percentPosition: true
   });
-
-  calculateGridWrapperSize(".img-wrapper");
 
   // improves layout in cost of performance
   /*var lastChecked = 0;
@@ -41,7 +41,7 @@ $(document).ready(function() {
   });*/
 
   // setTimeout(function() { $grid.packery(); }, 1000);
-  setTimeout(function() { $grid.packery(); }, 2000);
+  // setTimeout(function() { $grid.packery(); }, 2000);
 
   var unveilCounter = $(".unveil").length;
   var lastPercentage = 0;
@@ -52,9 +52,8 @@ $(document).ready(function() {
   $(".unveil").unveil(unveilOffset, function() {
     $(this).parents('.grid-item').addClass('-unveiled');
 
-    $(window).trigger("lookup");
-
-    $grid.packery();
+    // $(window).trigger("lookup");
+    // $grid.packery();
   },
   {
     beforeUnveil: function(test) {

@@ -47,7 +47,7 @@ $(document).ready(function() {
   var lastPercentage = 0;
   var processStack = 0;
   var defaultUnveilOffset = 200;
-  var unveilOffset = isMobileDevice ? 50 : defaultUnveilOffset;
+  var unveilOffset = isMobileDevice ? 100 : defaultUnveilOffset;
 
   $(".unveil").unveil(unveilOffset, function() {
     $(this).parents('.grid-item').addClass('-unveiled');

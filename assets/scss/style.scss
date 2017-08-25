@@ -319,11 +319,16 @@ hr.spacer {
 
 
 .spinner {
-  margin: 100px auto;
+  margin: 50px auto;
   height: 40px;
   text-align: center;
   font-size: 10px;
   opacity: 100;
+
+  @media (max-width: $screen-sm-max) {
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
 
   &.-hidden {
     transition: .5s;
@@ -331,6 +336,10 @@ hr.spacer {
     margin-bottom: 0;
     opacity: 0;
     height: 0;
+
+    > div {
+      animation: none;
+    }
   }
 }
 
@@ -382,13 +391,13 @@ hr.spacer {
 }
 
 @keyframes blink {
-    0% {
-      opacity: .2;
-    }
-    20% {
-      opacity: 1;
-    }
-    100% {
-      opacity: .2;
-    }
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
 }

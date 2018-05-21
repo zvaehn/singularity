@@ -1,10 +1,11 @@
 <?php
-$kirby = kirby();
-
-require 'lib/phpflickr-master/phpFlickr.php';
+// include 'lib/phpflickr-master/phpFlickr.php';
 
 $domainShardCounter = 1;
 
+$kirby = kirby();
+
+if(!function_exists("get_compressorUrl")):
 function get_compressorUrl($url) {
   $ext = $ext = pathinfo($url, PATHINFO_EXTENSION);
   $filename = sha1($url) . "." . $ext;
@@ -36,3 +37,4 @@ function get_compressorUrl($url) {
 
   return $fullUrl;
 }
+endif;

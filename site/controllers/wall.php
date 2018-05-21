@@ -78,10 +78,26 @@ return function($site, $pages, $page) {
       }
     }
 
-    if(!$page->setCache($walldata) && c::get('development')) {
-      if(c::get('development')) error_log("unable to write cache.");
+    // ----------------------------------------------------
+    // Panel Images integration
+    $panelPage = $page;
+
+    foreach ($panelPage->images() as $image) {
+      if($image->timestamp()->isNotEmpty()) {
+        array_push($walldata, array(
+          'type' => 'panel',
+          'time' => strtotime($image->timestamp()),
+          'data' => $image,
+        ));
+      }
     }
   }
+
+  if(!$page->setCache($walldata) && c::get('development')) {
+    if(c::get('development')) error_log("unable to write cache.");
+  }
+
+
 
   // Sort by timestamp
   usort($walldata, function($a, $b) {

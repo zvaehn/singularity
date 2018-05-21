@@ -66,6 +66,21 @@
                 <?php
                 $lastType = 'instagram';
                 break;
+
+              // Panel Image
+              case 'panel': ?>
+                <div class='grid-item image-col' id="grid-id-<?= $key ?>">
+                  <div class="grid-item-content">
+                    <?= snippet('integrations/panel', array(
+                      'img' => $post['data'],
+                      'timestamp' => $post['time'],
+                      'placeholder' => $imgPlaceholder
+                    )); ?>
+                  </div>
+                </div>
+                <?php
+                $lastType = 'panel';
+                break;
             }
           }
         ?>

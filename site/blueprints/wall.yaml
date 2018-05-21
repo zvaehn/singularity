@@ -1,6 +1,17 @@
 title: Wall
 pages: false
-files: false
+files:
+  order: timestamp
+  fields:
+    timestamp:
+      label: Timestamp
+      type: date
+      format: dd.mm.yyyy
+      required: true
+      default: today
+    caption:
+      label: Caption
+      type: text
 options:
   preview: true
   status: false

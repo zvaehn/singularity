@@ -30,7 +30,9 @@
     $jsfiletime = filemtime($jsfile);
     $jsurl = kirby()->urls()->assets() . "/compiled/script.min.js?v=" . md5($jsfiletime);
 
-    if($site->analytics()->exists()) {
+    $analyticsIsActive = false;
+
+    if($site->analytics()->exists() && $analyticsIsActive) {
       ?>
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

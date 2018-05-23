@@ -1,5 +1,5 @@
 <?php
-DEFINE('CACHEDIR', kirby()->roots()->cache(). "/" . 'wall');
+DEFINE('CACHEDIR', kirby()->roots()->index(). "/cache/" . 'wall');
 DEFINE('CACHEFILE', 'wall.json');
 
 class WallPage extends Page {

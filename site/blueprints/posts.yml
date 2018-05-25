@@ -8,7 +8,7 @@ pages:
 files: false
 options:
   preview: false
-  status: false
+  status: true
   template: false
   url: false
   delete: false

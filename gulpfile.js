@@ -48,10 +48,10 @@ gulp.task('sass', function() {
 
 // JS Task
 gulp.task('analytics', function() {
-    remoteSrc(['analytics.js'], {
-        base: 'https://google-analytics.com/'
-    })
-    .pipe(gulp.dest('./assets/js/'));
+    // remoteSrc(['analytics.js'], {
+    //     base: 'https://google-analytics.com/'
+    // })
+    // .pipe(gulp.dest('./assets/js/'));
 });
 
 gulp.task('js', ['analytics'], function() {

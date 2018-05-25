@@ -28,10 +28,6 @@ cache/
 tmp/
 node_modules
 
-### Less ###
-*.css
-
-
 ### Sass ###
 .sass-cache/
 *.css.map

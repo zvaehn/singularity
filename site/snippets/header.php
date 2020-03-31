@@ -83,10 +83,11 @@
         <div class="avatar-col">
           <a class="avatar" href="<?= $site->url() ?>" title="Home">
             <?php
-            $avatar = $site->image($site->Avatar());
-            $thumb = thumb($avatar , array('width' => 300, 'crop' => true));
-            ?>
-            <img class="img-rounded" src="<?= get_compressorUrl($thumb->url()) ?>" alt="<?= $avatar->title() ?>" />
+            if ($avatar = $site->image($site->Avatar())):
+              $thumb = thumb($avatar , array('width' => 300, 'crop' => true));
+              ?>
+              <img class="img-rounded" src="<?= get_compressorUrl($thumb->url()) ?>" alt="<?= $avatar->title() ?>" />
+            <?php endif ?>
           </a>
         </div>
         <div class="meta-col">

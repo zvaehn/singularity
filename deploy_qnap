@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#rsync -azh --stats --delete --progress --no-perms --no-owner --no-group --exclude-from=deploy_exclude.txt -e ssh ./ sven_schiffer@148.251.47.81:hiimzvaehn.de/
+rsync -azh --stats --delete --progress --no-perms --no-owner --no-group --exclude-from=deploy_exclude.txt -e 'ssh -p 22' ./ admin@svens-nas.local:/share/Web/qnap.hiimzvaehn.de/
